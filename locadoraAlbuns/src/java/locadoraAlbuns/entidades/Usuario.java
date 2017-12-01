@@ -10,8 +10,6 @@ public class Usuario {
     private String cpf;
     private String email;
     private String endereco;
-    private String telefoneCelular;
-    private String telefoneFixo;
 
     public int getId() {
         return id;
@@ -53,20 +51,4 @@ public class Usuario {
         this.endereco = endereco;
     }
 
-    public String getTelefoneCelular() {
-        return telefoneCelular;
-    }
-
-    public void setTelefoneCelular(String telefoneCelular) {
-        this.telefoneCelular = telefoneCelular;
-    }
-
-    public String getTelefoneFixo() {
-        return telefoneFixo;
-    }
-
-    public void setTelefoneFixo(String telefoneFixo) {
-        this.telefoneFixo = telefoneFixo;
-    }
-    
 }
