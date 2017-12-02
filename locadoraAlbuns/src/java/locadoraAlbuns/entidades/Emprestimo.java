@@ -10,6 +10,7 @@ public class Emprestimo {
     private String fim;
     private Usuario usuario;
     private Album album;
+    private TipoEmprestimo tipoEmprestimo;
 
     public int getId() {
         return id;
