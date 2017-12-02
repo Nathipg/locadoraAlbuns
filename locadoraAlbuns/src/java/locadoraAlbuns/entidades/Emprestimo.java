@@ -51,6 +51,12 @@ public class Emprestimo {
     public void setAlbum(Album album) {
         this.album = album;
     }
-    
-    
+
+    public TipoEmprestimo getTipoEmprestimo() {
+        return tipoEmprestimo;
+    }
+
+    public void setTipoEmprestimo(TipoEmprestimo tipoEmprestimo) {
+        this.tipoEmprestimo = tipoEmprestimo;
+    }
 }
