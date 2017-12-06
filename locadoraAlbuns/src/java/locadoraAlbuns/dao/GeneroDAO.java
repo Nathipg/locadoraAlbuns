@@ -34,12 +34,12 @@ public class GeneroDAO extends DAO<Genero> {
         PreparedStatement stmt = getConnection().prepareStatement(
                 "UPDATE genero "
                 + "SET"
-                + "    nome = ?,"
+                + "    nome = ?"
                 + "WHERE"
                 + "    id = ?;" );
 
         stmt.setString( 1, obj.getNome() );
-        stmt.setInt( 3, obj.getId() );
+        stmt.setInt( 2, obj.getId() );
 
         stmt.executeUpdate();
         stmt.close();
@@ -64,8 +64,8 @@ public class GeneroDAO extends DAO<Genero> {
 
         PreparedStatement stmt = getConnection().prepareStatement(
                 "SELECT "
-                + "    genero.id,"
-                + "    genero.nome"
+                + "    genero.id, "
+                + "    genero.nome "
                 + "FROM genero" );
 
         ResultSet rs = stmt.executeQuery();
