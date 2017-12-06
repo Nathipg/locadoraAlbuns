@@ -66,7 +66,7 @@ public class GeneroDAO extends DAO<Genero> {
                 "SELECT "
                 + "    genero.id, "
                 + "    genero.nome "
-                + "FROM genero" );
+                + "FROM genero;" );
 
         ResultSet rs = stmt.executeQuery();
 

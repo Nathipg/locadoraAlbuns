@@ -8,7 +8,7 @@ public class Banda {
     private int id;
     private String nome;
     private String foto;
-    private String data_formacao;
+    private String dataFormacao;
     private String descricao;
 
     public int getId() {
@@ -35,12 +35,12 @@ public class Banda {
         this.foto = foto;
     }
 
-    public String getData_formacao() {
-        return data_formacao;
+    public String getDataFormacao() {
+        return dataFormacao;
     }
 
-    public void setData_formacao(String data_formacao) {
-        this.data_formacao = data_formacao;
+    public void setDataFormacao(String dataFormacao) {
+        this.dataFormacao = dataFormacao;
     }
 
     public String getDescricao() {

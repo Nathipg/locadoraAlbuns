@@ -70,7 +70,7 @@ public class TipoEmprestimoDAO extends DAO<TipoEmprestimo> {
                 + "    tipo_emprestimo.id, "
                 + "    tipo_emprestimo.dias_duracao, "
                 + "    tipo_emprestimo.valor "
-                + "FROM tipo_emprestimo" );
+                + "FROM tipo_emprestimo;" );
 
         ResultSet rs = stmt.executeQuery();
 
