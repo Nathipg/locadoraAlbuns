@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import locadoraAlbuns.entidades.TipoEmprestimo;
 
+/**
+ *
+ * @author nathipg
+ */
 public class TipoEmprestimoDAO extends DAO<TipoEmprestimo> {
     
     public TipoEmprestimoDAO() throws SQLException {
