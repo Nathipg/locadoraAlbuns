@@ -75,7 +75,7 @@ public class FaixaDAO extends DAO<Faixa> {
                 + "    faixa.nome,"
                 + "    faixa.duracao,"
                 + "    faixa.id_album"
-                + "FROM faixa" );
+                + "FROM faixa;" );
 
         ResultSet rs = stmt.executeQuery();
 
@@ -108,7 +108,7 @@ public class FaixaDAO extends DAO<Faixa> {
                 + "    faixa.duracao,"
                 + "    faixa.id_album"
                 + "FROM faixa "
-                + "WHERE faixa.id = ?;");
+                + "WHERE faixa.id = ?; ");
 
         stmt.setInt( 1, id );
 
