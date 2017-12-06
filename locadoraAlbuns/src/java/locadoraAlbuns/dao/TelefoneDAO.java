@@ -1,9 +1,12 @@
 package locadoraAlbuns.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import locadoraAlbuns.entidades.Telefone;
+import locadoraAlbuns.entidades.Usuario;
 
 /**
  *
@@ -38,17 +41,18 @@ public class TelefoneDAO extends DAO<Telefone> {
                 + "WHERE"
                 + "    id = ?;" );
 
-        stmt.setString( 1, obj.getNome() );
-        stmt.setInt( 2, obj.getId() );
+        stmt.setString( 1, obj.getTelefone() );
+        stmt.setInt( 2, obj.getUsuario().getId() );
+        stmt.setInt( 3, obj.getId() );
 
         stmt.executeUpdate();
         stmt.close();
     }
 
     @Override
-    public void excluir(Genero obj) throws SQLException {
+    public void excluir(Telefone obj) throws SQLException {
         PreparedStatement stmt = getConnection().prepareStatement(
-                "DELETE FROM genero "
+                "DELETE FROM telefone "
                 + "WHERE"
                 + "    id = ?;" );
 
@@ -59,25 +63,40 @@ public class TelefoneDAO extends DAO<Telefone> {
     }
 
     @Override
-    public List<Genero> listarTodos() throws SQLException {
-        List<Genero> lista = new ArrayList<Genero>();
+    public List<Telefone> listarTodos() throws SQLException {
+        List<Telefone> lista = new ArrayList<Telefone>();
 
         PreparedStatement stmt = getConnection().prepareStatement(
                 "SELECT "
-                + "    genero.id, "
-                + "    genero.nome "
-                + "FROM genero" );
+                + "    telefone.id, "
+                + "    telefone.telefone, "
+                + "    telefone.usuario_id, "
+                + "    usuario.nome, "
+                + "    usuario.cpf, "
+                + "    usuario.email, "
+                + "    usuario.endereco "
+                + "FROM telefone"
+                        + " INNER JOIN usuario "
+                        + "         ON usuario.id = telefone.id_usuario;" );
 
         ResultSet rs = stmt.executeQuery();
 
         while ( rs.next() ) {
             
-            Genero genero = new Genero();
+            Telefone telefone = new Telefone();
+            Usuario usuario = new Usuario();
+            
+            usuario.setId( rs.getInt( "id" ) );
+            usuario.setNome( rs.getString( "nome" ) );
+            usuario.setCpf( rs.getString( "cpf" ) );
+            usuario.setEmail( rs.getString( "email" ) );
+            usuario.setEndereco( rs.getString( "endereco" ) );
 
-            genero.setId( rs.getInt( "id" ) );
-            genero.setNome( rs.getString( "nome" ) );
+            telefone.setId( rs.getInt( "id" ) );
+            telefone.setTelefone( rs.getString( "telefone" ) );
+            telefone.setUsuario( usuario );
 
-            lista.add( genero );
+            lista.add( telefone );
 
         }
 
@@ -88,32 +107,46 @@ public class TelefoneDAO extends DAO<Telefone> {
     }
 
     @Override
-    public Genero obterPorId(int id) throws SQLException {
+    public Telefone obterPorId(int id) throws SQLException {
+        Telefone telefone = null;
         
-        Genero genero = null;
-
         PreparedStatement stmt = getConnection().prepareStatement(
                 "SELECT "
-                + "    genero.id, "
-                + "    genero.nome "
-                + "FROM genero "
-                + "WHERE genero.id = ?;");
+                + "    telefone.id, "
+                + "    telefone.telefone, "
+                + "    telefone.usuario_id, "
+                + "    usuario.nome, "
+                + "    usuario.cpf, "
+                + "    usuario.email, "
+                + "    usuario.endereco "
+                + "FROM telefone"
+                        + " INNER JOIN usuario "
+                        + "         ON usuario.id = telefone.id_usuario "
+                + "WHERE telefone.id = ?;");
 
         stmt.setInt( 1, id );
 
         ResultSet rs = stmt.executeQuery();
 
         if ( rs.next() ) {
-            genero = new Genero();
+            telefone = new Telefone();
+            Usuario usuario = new Usuario();
+            
+            usuario.setId( rs.getInt( "id" ) );
+            usuario.setNome( rs.getString( "nome" ) );
+            usuario.setCpf( rs.getString( "cpf" ) );
+            usuario.setEmail( rs.getString( "email" ) );
+            usuario.setEndereco( rs.getString( "endereco" ) );
 
-            genero.setId( rs.getInt( "id" ) );
-            genero.setNome( rs.getString( "nome" ) );
+            telefone.setId( rs.getInt( "id" ) );
+            telefone.setTelefone( rs.getString( "telefone" ) );
+            telefone.setUsuario( usuario );
         }
 
         rs.close();
         stmt.close();
 
-        return genero;
+        return telefone;
     }
     
 }
