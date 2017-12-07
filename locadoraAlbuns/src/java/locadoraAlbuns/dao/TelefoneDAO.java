@@ -70,7 +70,7 @@ public class TelefoneDAO extends DAO<Telefone> {
                 "SELECT "
                 + "    telefone.id, "
                 + "    telefone.telefone, "
-                + "    telefone.usuario_id, "
+                + "    telefone.id_usuario, "
                 + "    usuario.nome, "
                 + "    usuario.cpf, "
                 + "    usuario.email, "
@@ -86,7 +86,7 @@ public class TelefoneDAO extends DAO<Telefone> {
             Telefone telefone = new Telefone();
             Usuario usuario = new Usuario();
             
-            usuario.setId( rs.getInt( "id" ) );
+            usuario.setId( rs.getInt( "id_usuario" ) );
             usuario.setNome( rs.getString( "nome" ) );
             usuario.setCpf( rs.getString( "cpf" ) );
             usuario.setEmail( rs.getString( "email" ) );
@@ -114,7 +114,7 @@ public class TelefoneDAO extends DAO<Telefone> {
                 "SELECT "
                 + "    telefone.id, "
                 + "    telefone.telefone, "
-                + "    telefone.usuario_id, "
+                + "    telefone.id_usuario, "
                 + "    usuario.nome, "
                 + "    usuario.cpf, "
                 + "    usuario.email, "
@@ -132,7 +132,7 @@ public class TelefoneDAO extends DAO<Telefone> {
             telefone = new Telefone();
             Usuario usuario = new Usuario();
             
-            usuario.setId( rs.getInt( "id" ) );
+            usuario.setId( rs.getInt( "id_usuario" ) );
             usuario.setNome( rs.getString( "nome" ) );
             usuario.setCpf( rs.getString( "cpf" ) );
             usuario.setEmail( rs.getString( "email" ) );
