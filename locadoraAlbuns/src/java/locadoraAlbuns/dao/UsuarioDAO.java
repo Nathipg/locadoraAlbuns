@@ -43,7 +43,7 @@ public class UsuarioDAO extends DAO<Usuario> {
                 + "    nome = ?,"
                 + "    cpf = ?,"
                 + "    email = ?,"
-                + "    endereco = ?,"
+                + "    endereco = ?"
                 + "WHERE"
                 + "    id = ?;" );
 
