@@ -70,7 +70,7 @@ public class TelefoneDAO extends DAO<Telefone> {
                 "SELECT "
                 + "    telefone.id, "
                 + "    telefone.telefone, "
-                + "    telefone.usuario_id, "
+                + "    telefone.id_usuario, "
                 + "    usuario.nome, "
                 + "    usuario.cpf, "
                 + "    usuario.email, "

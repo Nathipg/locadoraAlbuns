@@ -43,7 +43,7 @@ public class MusicoDAO extends DAO<Musico> {
                 + "    nome = ?,"
                 + "    foto = ?,"
                 + "    data_nascimento = ?,"
-                + "    bio = ?,"
+                + "    bio = ?"
                 + "WHERE"
                 + "    id = ?;" );
 
