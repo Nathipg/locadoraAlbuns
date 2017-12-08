@@ -17,6 +17,9 @@
         <p>
             <a href="${pageContext.request.contextPath}/formularios/generos/listagem.jsp">Gêneros</a>
         </p>
+        <p>
+            <a href="${pageContext.request.contextPath}/formularios/musicos/listagem.jsp">Músicos</a>
+        </p>
         <!--
         <p>
             <a href="${pageContext.request.contextPath}/formularios/cidades/listagem.jsp">Musicos</a>

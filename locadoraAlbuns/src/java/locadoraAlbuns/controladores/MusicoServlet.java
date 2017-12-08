@@ -7,15 +7,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import locadoraAlbuns.dao.GeneroDAO;
-import locadoraAlbuns.entidades.Genero;
+import locadoraAlbuns.dao.MusicoDAO;
+import locadoraAlbuns.entidades.Musico;
 
 /**
- * Servlet para tratar Generos.
+ * Servlet para tratar Musicos.
  *
  * @author nathipg
  */
-public class GeneroServlet extends HttpServlet {
+public class MusicoServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -24,69 +24,74 @@ public class GeneroServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(
-            HttpServletRequest request,
-            HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         String acao = request.getParameter( "acao" );
-        GeneroDAO dao = null;
+        MusicoDAO dao = null;
         RequestDispatcher disp = null;
 
         try {
 
-            dao = new GeneroDAO();
+            dao = new MusicoDAO();
 
             if ( acao.equals( "criar" ) ) {
 
                 String nome = request.getParameter( "nome" );
+                String dataNascimento = request.getParameter( "dataNascimento" );
+                String bio = request.getParameter( "bio" );
                 
-                Genero genero = new Genero();
-                genero.setNome( nome );
+                Musico musico = new Musico();
+                musico.setNome( nome );
+                musico.setDataNascimento( dataNascimento );
+                musico.setBio( bio );
 
-                dao.salvar( genero );
+                dao.salvar( musico );
 
-                disp = request.getRequestDispatcher( "/formularios/generos/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/musicos/listagem.jsp" );
 
             } else if ( acao.equals( "alterar" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
                 String nome = request.getParameter( "nome" );
+                String dataNascimento = request.getParameter( "dataNascimento" );
+                String bio = request.getParameter( "bio" );
 
-                Genero genero = new Genero();
-                genero.setId( id );
-                genero.setNome( nome );
+                Musico musico = new Musico();
+                musico.setId( id );
+                musico.setNome( nome );
+                musico.setDataNascimento( dataNascimento );
+                musico.setBio( bio );
 
-                dao.atualizar( genero );
+                dao.atualizar( musico );
 
-                disp = request.getRequestDispatcher( "/formularios/generos/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/musicos/listagem.jsp" );
 
             } else if ( acao.equals( "excluir" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
 
-                Genero genero = new Genero();
-                genero.setId( id );
+                Musico musico = new Musico();
+                musico.setId( id );
 
-                dao.excluir( genero );
+                dao.excluir( musico );
 
-                disp = request.getRequestDispatcher( "/formularios/generos/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/musicos/listagem.jsp" );
 
             } else if ( acao.equals( "prepAlteracao" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
-                Genero genero = dao.obterPorId( id );
-                request.setAttribute( "genero", genero );
+                Musico musico = dao.obterPorId( id );
+                request.setAttribute( "musico", musico );
 
-                disp = request.getRequestDispatcher( "/formularios/generos/alterar.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/musicos/alterar.jsp" );
 
             } else if ( acao.equals( "prepExclusao" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
-                Genero genero = dao.obterPorId( id );
-                request.setAttribute( "genero", genero );
+                Musico musico = dao.obterPorId( id );
+                request.setAttribute( "musico", musico );
 
-                disp = request.getRequestDispatcher( "/formularios/generos/excluir.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/musicos/excluir.jsp" );
 
             }
 
@@ -105,8 +110,7 @@ public class GeneroServlet extends HttpServlet {
         if ( disp != null ) {
             disp.forward( request, response );
         }
-
-    } 
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 

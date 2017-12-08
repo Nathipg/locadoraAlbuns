@@ -5,31 +5,34 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Excluir Gênero</title>
+        <title>Alterar Músico</title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/estilos.css"/>
     </head>
 
     <body>
 
-        <h1>Excluir Gênero</h1>
+        <h1>Alterar Músico</h1>
 
         <form method="post"
-              action="${pageContext.request.contextPath}/GeneroServlet">
+              action="${pageContext.request.contextPath}/MusicoServlet">
 
-            <input name="acao" type="hidden" value="excluir"/>
-            <input name="id" type="hidden" value="${requestScope.genero.id}"/>
+            <input name="acao" type="hidden" value="alterar"/>
+            <input name="id" type="hidden" value="${requestScope.musico.id}"/>
 
             <table>
                 <tr>
                     <td class="alinharDireita">Nome:</td>
-                    <td>${requestScope.genero.nome}</td>
+                    <td>
+                        <input name="nome" type="text" size="20"
+                               value="${requestScope.musico.nome}"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="${pageContext.request.contextPath}/formularios/generos/listagem.jsp">Voltar</a>
+                        <a href="${pageContext.request.contextPath}/formularios/musicos/listagem.jsp">Voltar</a>
                     </td>
                     <td class="alinharDireita">
-                        <input type="submit" value="Excluir"/>
+                        <input type="submit" value="Alterar"/>
                     </td>
                 </tr>
             </table>

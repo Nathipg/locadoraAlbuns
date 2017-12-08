@@ -8,6 +8,10 @@
         <servlet-name>GeneroServlet</servlet-name>
         <servlet-class>locadoraAlbuns.controladores.GeneroServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MusicoServlet</servlet-name>
+        <servlet-class>locadoraAlbuns.controladores.MusicoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GeneroServlet</servlet-name>
         <url-pattern>/GeneroServlet</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>BandaServlet</servlet-name>
         <url-pattern>/processaBanda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MusicoServlet</servlet-name>
+        <url-pattern>/MusicoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
