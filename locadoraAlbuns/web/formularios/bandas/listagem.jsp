@@ -28,6 +28,8 @@
                     <th>Nome</th>
                     <th>Data Formação</th>
                     <th>Descrição</th>
+                    <th>Alterar</th>
+                    <th>Excluir</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,7 +49,7 @@
         </table>
         
 
-        <p><a href="${pageContext.request.contextPath}/formularios/bandas/novo.jsp">Nova Cidade</a></p>
+        <p><a href="${pageContext.request.contextPath}/formularios/bandas/novo.jsp">Nova Banda</a></p>
         
         <p><a href="${pageContext.request.contextPath}/index.jsp">Tela Principal</a></p>
 
