@@ -4,6 +4,14 @@
         <servlet-name>BandaServlet</servlet-name>
         <servlet-class>locadoraAlbuns.controladores.BandaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GeneroServlet</servlet-name>
+        <servlet-class>locadoraAlbuns.controladores.GeneroServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GeneroServlet</servlet-name>
+        <url-pattern>/GeneroServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BandaServlet</servlet-name>
         <url-pattern>/BandaServlet</url-pattern>
