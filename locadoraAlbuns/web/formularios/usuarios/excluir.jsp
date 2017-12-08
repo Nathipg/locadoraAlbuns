@@ -1,65 +1,52 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrar Usuário</title>
+        <title>Excluir Usuário</title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/estilos.css"/>
     </head>
 
     <body>
 
-        <h1>Cadastrar Usuário</h1>
+        <h1>Excluir Usuário</h1>
 
         <form method="post" action="${pageContext.request.contextPath}/processaUsuario">
 
-            <input name="acao" type="hidden" value="criar"/>
+            <input name="acao" type="hidden" value="excluir"/>
+            <input name="id" type="hidden" value="${requestScope.usuario.id}"/>
 
-            <table>
+            <table class="tabelaListagem">
                 <tr>
                     <td class="alinharDireita">Nome:</td>
-                    <td>
-                        <input name="nome" type="text" size="45"/>
-                    </td>
+                    <td>${requestScope.usuario.nome}</td>
                 </tr>
                 <tr>
                     <td class="alinharDireita">CPF:</td>
-                    <td>
-                        <input name="cpf" type="text" size="11"/>
-                    </td>
+                    <td>${requestScope.usuario.cpf}</td>
                 </tr>
                 <tr>
                     <td class="alinharDireita">Email:</td>
-                    <td>
-                        <input name="email" type="text" size="45">
-                    </td>
+                    <td>${requestScope.usuario.email}</td>
                 </tr>
                 <tr>
                     <td class="alinharDireita">Telefone Fixo:</td>
-                    <td>
-                        <input name="telefoneFixo" type="text">
-                    </td>
+                    <td>${requestScope.usuario.telefoneFixo}</td>
                 </tr>
                 <tr>
                     <td class="alinharDireita">Telefone Celular:</td>
-                    <td>
-                        <input name="telefoneCelular" type="text">
-                    </td>
+                    <td>${requestScope.usuario.telefoneCelular}</td>
                 </tr>
                 <tr>
                     <td class="alinharDireita">Endereço:</td>
-                    <td>
-                        <textarea name="endereco" type="text" rows="5"></textarea>
-                    </td>
+                    <td>${requestScope.usuario.endereco}</td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="${pageContext.request.contextPath}/formularios/musicos/listagem.jsp">Voltar</a>
+                        <a href="${pageContext.request.contextPath}/formularios/usuarios/listagem.jsp">Voltar</a>
                     </td>
                     <td class="alinharDireita">
-                        <input type="submit" value="Salvar"/>
+                        <input type="submit" value="Excluir"/>
                     </td>
                 </tr>
             </table>
