@@ -5,31 +5,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Alterar Gênero</title>
+        <title>Alterar Álbum</title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/estilos.css"/>
     </head>
 
     <body>
 
-        <h1>Alterar Gênero</h1>
+        <h1>Alterar Álbum</h1>
 
         <form method="post"
-              action="${pageContext.request.contextPath}/GeneroServlet">
+              action="${pageContext.request.contextPath}/AlbumServlet">
 
             <input name="acao" type="hidden" value="alterar"/>
-            <input name="id" type="hidden" value="${requestScope.genero.id}"/>
+            <input name="id" type="hidden" value="${requestScope.album.id}"/>
 
             <table>
                 <tr>
                     <td class="alinharDireita">Nome:</td>
                     <td>
                         <input name="nome" type="text" size="20"
-                               value="${requestScope.genero.nome}"/>
+                               value="${requestScope.album.nome}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="${pageContext.request.contextPath}/formularios/generos/listagem.jsp">Voltar</a>
+                        <a href="${pageContext.request.contextPath}/formularios/albums/listagem.jsp">Voltar</a>
                     </td>
                     <td class="alinharDireita">
                         <input type="submit" value="Alterar"/>
