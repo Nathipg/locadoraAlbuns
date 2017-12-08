@@ -12,6 +12,9 @@
         <h1>Locadora de Álbuns</h1>
 
         <p>
+            <a href="${pageContext.request.contextPath}/formularios/albums/listagem.jsp">Álbuns</a>
+        </p>
+        <p>
             <a href="${pageContext.request.contextPath}/formularios/bandas/listagem.jsp">Bandas</a>
         </p>
         <p>
