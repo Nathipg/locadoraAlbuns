@@ -26,6 +26,8 @@
                     <th>Telefone Fixo</th>
                     <th>Telefone Celular</th>
                     <th>Endereço</th>
+                    <th>Alterar</th>
+                    <th>Excluir</th>
                 </tr>
             </thead>
             <tbody>

@@ -48,7 +48,7 @@ public class BandaServlet extends HttpServlet {
             if ( acao.equals( "criar" ) ) {
 
                 String nome = request.getParameter( "nome" );
-                String dataFormacao = request.getParameter( "data_formacao" );
+                String dataFormacao = request.getParameter( "dataFormacao" );
                 String descricao = request.getParameter( "descricao" );
 
                 Banda banda = new Banda();
@@ -58,14 +58,13 @@ public class BandaServlet extends HttpServlet {
 
                 dao.salvar( banda );
                 
-                disp = request.getRequestDispatcher(
-                        "/formularios/bandas/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/bandas/listagem.jsp" );
 
             } else if ( acao.equals( "alterar" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
                 String nome = request.getParameter( "nome" );
-                String dataFormacao = request.getParameter( "data_formacao" );
+                String dataFormacao = request.getParameter( "dataFormacao" );
                 String descricao = request.getParameter( "descricao" );
 
                 Banda banda = new Banda();
