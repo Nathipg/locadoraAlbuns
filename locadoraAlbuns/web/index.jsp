@@ -20,6 +20,9 @@
         <p>
             <a href="${pageContext.request.contextPath}/formularios/musicos/listagem.jsp">Músicos</a>
         </p>
+        <p>
+            <a href="${pageContext.request.contextPath}/formularios/formacoes/listagem.jsp">Formações</a>
+        </p>
         <!--
         <p>
             <a href="${pageContext.request.contextPath}/formularios/cidades/listagem.jsp">Musicos</a>
