@@ -20,6 +20,9 @@
             <thead>
                 <tr>
                     <th>Id</th>
+                    <th>Nome</th>
+                    <th>Data Lançamento</th>
+                    <th>Gênero</th>
                     <th>Banda</th>
                     <th>Músico</th>
                     <th>Alterar</th>

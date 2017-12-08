@@ -111,6 +111,7 @@ public class AlbumServlet extends HttpServlet {
             } else if ( acao.equals( "prepAlteracao" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
+                System.out.println(id);
                 Album album = dao.obterPorId( id );
                 request.setAttribute( "album", album );
 

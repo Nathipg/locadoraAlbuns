@@ -21,21 +21,21 @@
 
             <table>
                 <tr>
-                    <td class="alinharDireita">Data Início </td>
+                    <td class="alinharDireita">Nome </td>
                     <td>
-                        <input name="inicio" type="text" size="10">
+                        <input name="nome" type="text" size="10">
                     </td>
                 </tr>
                 <tr>
-                    <td class="alinharDireita">Data Fim </td>
+                    <td class="alinharDireita">Data Lançamento </td>
                     <td>
-                        <input name="fim" type="text" size="10">
+                        <input name="dataLancamento" type="text" size="10">
                     </td>
                 </tr>
                 <tr>
                     <td class="alinharDireita">Gênero</td>
                     <td>
-                        <select>
+                        <select name="idGenero">
                             <jsp:useBean id="generos" scope="page" class="locadoraAlbuns.servicos.GeneroServices"/>
                             
                             <c:forEach items="${generos.todos}" var="genero">
@@ -47,7 +47,7 @@
                 <tr>
                     <td class="alinharDireita">Banda</td>
                     <td>
-                        <select>
+                        <select name="idBanda">
                             <jsp:useBean id="bandas" scope="page" class="locadoraAlbuns.servicos.BandaServices"/>
                             
                             <c:forEach items="${bandas.todos}" var="banda">
@@ -59,7 +59,7 @@
                 <tr>
                     <td class="alinharDireita">Músico</td>
                     <td>
-                        <select>
+                        <select name="idMusico">
                             <jsp:useBean id="musicos" scope="page" class="locadoraAlbuns.servicos.MusicoServices"/>
                             
                             <c:forEach items="${musicos.todos}" var="musico">

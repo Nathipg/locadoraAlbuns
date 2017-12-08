@@ -67,7 +67,7 @@ public class AlbumDAO extends DAO<Album> {
     public void excluir(Album obj) throws SQLException {
         PreparedStatement stmt = getConnection().prepareStatement(
                 "DELETE FROM album "
-                + "WHERE"
+                + "WHERE "
                 + "    id = ?;" );
 
         stmt.setInt( 1, obj.getId() );
@@ -167,7 +167,7 @@ public class AlbumDAO extends DAO<Album> {
                 + " INNER JOIN banda "
                         + "         ON banda.id = album.id_banda"
                 + " INNER JOIN musico "
-                        + "         ON musico.id = album.id_musico"
+                        + "         ON musico.id = album.id_musico "
                 + "WHERE album.id = ?;");
         
         stmt.setInt( 1, id );
