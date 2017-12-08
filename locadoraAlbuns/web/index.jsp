@@ -23,14 +23,9 @@
         <p>
             <a href="${pageContext.request.contextPath}/formularios/formacoes/listagem.jsp">Formações</a>
         </p>
-        <!--
         <p>
-            <a href="${pageContext.request.contextPath}/formularios/cidades/listagem.jsp">Musicos</a>
+            <a href="${pageContext.request.contextPath}/formularios/usuarios/listagem.jsp">Usuários</a>
         </p>
-        <p>
-            <a href="${pageContext.request.contextPath}/formularios/estados/listagem.jsp">Estados</a>
-        </p>
-        -->
 
     </body>
 

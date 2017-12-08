@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Bandas Cadastradas</title>
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/estilo.css"/>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/estilos.css"/>
     </head>
 
     <body>
@@ -21,7 +21,7 @@
 
         <p><a href="${pageContext.request.contextPath}/formularios/bandas/novo.jsp">Nova Banda</a></p>
 
-        <table>
+        <table class="tabelaListagem">
             <thead>
                 <tr>
                     <th>ID</th>

@@ -66,7 +66,7 @@ public class UsuarioServlet extends HttpServlet {
                 dao.salvar( usuario );
                 
                 int usuarioId = dao.pegarUltimoId();
-                
+                                
                 telefone.setTelefone( fone );
                 telefone.setUsuario( dao.obterPorId( usuarioId ) );
                 
