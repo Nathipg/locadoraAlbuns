@@ -29,6 +29,9 @@
         <p>
             <a href="${pageContext.request.contextPath}/formularios/usuarios/listagem.jsp">Usuários</a>
         </p>
+        <p>
+            <a href="${pageContext.request.contextPath}/formularios/emprestimos/listagem.jsp">Empréstimos</a>
+        </p>
 
     </body>
 

@@ -14,16 +14,17 @@
         
         <h1>Empréstimos Cadastrados</h1>
 
-        <p><a href="${pageContext.request.contextPath}/formularios/formacoes/novo.jsp">Novo Empréstimo</a></p>
+        <p><a href="${pageContext.request.contextPath}/formularios/emprestimos/novo.jsp">Novo Empréstimo</a></p>
 
         <table class="tabelaListagem">
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Banda</th>
-                    <th>Músico</th>
-                    <th>Alterar</th>
-                    <th>Excluir</th>
+                    <th>Início</th>
+                    <th>Fim</th>
+                    <th>Usuário</th>
+                    <th>Álbum</th>
+                    <th>Tipo Empréstimo</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +43,7 @@
             </tbody>
         </table>
 
-        <p><a href="${pageContext.request.contextPath}/formularios/formacoes/novo.jsp">Novo Empréstimo</a></p>
+        <p><a href="${pageContext.request.contextPath}/formularios/emprestimos/novo.jsp">Novo Empréstimo</a></p>
         
         <p><a href="${pageContext.request.contextPath}/index.jsp">Tela Principal</a></p>
 
