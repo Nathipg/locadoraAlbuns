@@ -18,6 +18,9 @@ public class BandaDAO extends DAO<Banda> {
     
     @Override
     public void salvar(Banda obj) throws SQLException {
+        
+        Banda banda = new Banda();
+               
         PreparedStatement stmt = getConnection().prepareStatement(
                 "INSERT INTO banda"
                 + "( nome, foto, data_formacao, descricao ) "
