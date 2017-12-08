@@ -31,7 +31,7 @@
                 <tr>
                     <td class="alinharDireita">Data Formação: </td>
                     <td>
-                        <input name="dataFormacao" type="date" size="10">
+                        <input name="dataFormacao" type="text" size="10">
                     </td>
                 </tr>
                 <tr>

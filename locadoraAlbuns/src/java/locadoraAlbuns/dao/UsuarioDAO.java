@@ -20,12 +20,12 @@ public class UsuarioDAO extends DAO<Usuario> {
     @Override
     public void salvar(Usuario obj) throws SQLException {
         PreparedStatement stmt = getConnection().prepareStatement(
-                "INSERT INTO usuario"
-                + "( nome,"
-                + "  cpf,"
-                + "  email,"
-                + "  telefone_fixo,"
-                + "  telefone_celular,"
+                "INSERT INTO usuario "
+                + "( nome, "
+                + "  cpf, "
+                + "  email, "
+                + "  telefone_fixo, "
+                + "  telefone_celular, "
                 + "  endereco ) "
                 + "VALUES( ?, ?, ?, ?, ?, ? );" );
 
@@ -45,14 +45,14 @@ public class UsuarioDAO extends DAO<Usuario> {
     public void atualizar(Usuario obj) throws SQLException {
         PreparedStatement stmt = getConnection().prepareStatement(
                 "UPDATE usuario "
-                + "SET"
-                + "    nome = ?,"
-                + "    cpf = ?,"
-                + "    email = ?,"
-                + "    telefone_fixo = ?,"
-                + "    telefone_celular = ?,"
-                + "    endereco = ?"
-                + "WHERE"
+                + "SET "
+                + "    nome = ?, "
+                + "    cpf = ?, "
+                + "    email = ?, "
+                + "    telefone_fixo = ?, "
+                + "    telefone_celular = ?, "
+                + "    endereco = ? "
+                + "WHERE "
                 + "    id = ?;" );
 
         stmt.setString( 1, obj.getNome() );
@@ -85,13 +85,13 @@ public class UsuarioDAO extends DAO<Usuario> {
 
         PreparedStatement stmt = getConnection().prepareStatement(
                 "SELECT "
-                + "    usuario.id,"
-                + "    usuario.nome,"
-                + "    usuario.cpf,"
-                + "    usuario.email,"
-                + "    usuario.telefone_fixo,"
-                + "    usuario.telefone_celular,"
-                + "    usuario.endereco"
+                + "    usuario.id, "
+                + "    usuario.nome, "
+                + "    usuario.cpf, "
+                + "    usuario.email, "
+                + "    usuario.telefone_fixo, "
+                + "    usuario.telefone_celular, "
+                + "    usuario.endereco "
                 + "FROM usuario;" );
         
         ResultSet rs = stmt.executeQuery();
@@ -125,13 +125,13 @@ public class UsuarioDAO extends DAO<Usuario> {
 
         PreparedStatement stmt = getConnection().prepareStatement(
                 "SELECT "
-                + "    usuario.id,"
-                + "    usuario.nome,"
-                + "    usuario.cpf,"
-                + "    usuario.email,"
-                + "    usuario.telefone_fixo,"
-                + "    usuario.telefone_celular,"
-                + "    usuario.endereco"
+                + "    usuario.id, "
+                + "    usuario.nome, "
+                + "    usuario.cpf, "
+                + "    usuario.email, "
+                + "    usuario.telefone_fixo, "
+                + "    usuario.telefone_celular, "
+                + "    usuario.endereco "
                 + "FROM usuario "
                 + "WHERE usuario.id = ?;" );
 
