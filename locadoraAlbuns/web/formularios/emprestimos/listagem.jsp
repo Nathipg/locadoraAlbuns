@@ -34,7 +34,8 @@
                 <c:forEach items="${servicos.todos}" var="emprestimo">
                     <tr>
                         <td>${emprestimo.id}</td>
-                        <td>${emprestimo.banda.nome}</td>
+                        <td>${emprestimo.inicio}</td>
+                        <td>${emprestimo.fim}</td>
                         <td>${emprestimo.musico.nome}</td>
                         <td><a href="${pageContext.request.contextPath}/EmprestimoServlet?acao=prepAlteracao&id=${emprestimo.id}">Alterar</a></td>
                         <td><a href="${pageContext.request.contextPath}/EmprestimoServlet?acao=prepExclusao&id=${emprestimo.id}">Excluir</a></td>

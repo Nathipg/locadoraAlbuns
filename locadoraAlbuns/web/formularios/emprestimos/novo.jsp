@@ -35,7 +35,7 @@
                 <tr>
                     <td class="alinharDireita">Usuário</td>
                     <td>
-                        <select>
+                        <select name="idUsuario">
                             <jsp:useBean id="usuarios" scope="page" class="locadoraAlbuns.servicos.UsuarioServices"/>
                             
                             <c:forEach items="${usuarios.todos}" var="usuario">
@@ -45,33 +45,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="alinharDireita">Banda</td>
-                    <td>
-                        <select>
-                            <jsp:useBean id="bandas" scope="page" class="locadoraAlbuns.servicos.BandaServices"/>
-                            
-                            <c:forEach items="${bandas.todos}" var="banda">
-                                <option value="${banda.id}">${banda.nome}</option>
-                            </c:forEach>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="alinharDireita">Músico</td>
-                    <td>
-                        <select>
-                            <jsp:useBean id="musicos" scope="page" class="locadoraAlbuns.servicos.MusicoServices"/>
-                            
-                            <c:forEach items="${musicos.todos}" var="musico">
-                                <option value="${musico.id}">${musico.nome}</option>
-                            </c:forEach>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
                     <td class="alinharDireita">Álbum</td>
                     <td>
-                        <select>
+                        <select name="idAlbum">
                             <jsp:useBean id="albuns" scope="page" class="locadoraAlbuns.servicos.AlbumServices"/>
                             
                             <c:forEach items="${albuns.todos}" var="album">
@@ -83,7 +59,7 @@
                 <tr>
                     <td class="alinharDireita">Tipo Empréstimo</td>
                     <td>
-                        <select>
+                        <select name="idTipoEmprestimo">
                             <jsp:useBean id="tipoEmprestimos" scope="page" class="locadoraAlbuns.servicos.TipoEmprestimoServices"/>
                             
                             <c:forEach items="${tipoEmprestimos.todos}" var="emprestimo">
