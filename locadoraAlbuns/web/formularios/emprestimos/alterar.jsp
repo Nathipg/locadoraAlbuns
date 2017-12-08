@@ -5,31 +5,34 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Excluir Formação</title>
+        <title>Alterar Empréstimo</title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/estilos.css"/>
     </head>
 
     <body>
 
-        <h1>Excluir Formação</h1>
+        <h1>Alterar Empréstimo</h1>
 
         <form method="post"
-              action="${pageContext.request.contextPath}/FormacaoServlet">
+              action="${pageContext.request.contextPath}/EmprestimoServlet">
 
-            <input name="acao" type="hidden" value="excluir"/>
-            <input name="id" type="hidden" value="${requestScope.formacao.id}"/>
+            <input name="acao" type="hidden" value="alterar"/>
+            <input name="id" type="hidden" value="${requestScope.emprestimo.id}"/>
 
             <table>
                 <tr>
                     <td class="alinharDireita">Nome:</td>
-                    <td>${requestScope.formacao.nome}</td>
+                    <td>
+                        <input name="nome" type="text" size="20"
+                               value="${requestScope.emprestimo.nome}"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="${pageContext.request.contextPath}/formularios/formacoes/listagem.jsp">Voltar</a>
+                        <a href="${pageContext.request.contextPath}/formularios/emprestimos/listagem.jsp">Voltar</a>
                     </td>
                     <td class="alinharDireita">
-                        <input type="submit" value="Excluir"/>
+                        <input type="submit" value="Alterar"/>
                     </td>
                 </tr>
             </table>
