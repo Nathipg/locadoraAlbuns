@@ -7,19 +7,21 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import locadoraAlbuns.dao.BandaDAO;
-import locadoraAlbuns.dao.FormacaoDAO;
-import locadoraAlbuns.dao.MusicoDAO;
-import locadoraAlbuns.entidades.Banda;
-import locadoraAlbuns.entidades.Formacao;
-import locadoraAlbuns.entidades.Musico;
+import locadoraAlbuns.dao.UsuarioDAO;
+import locadoraAlbuns.dao.EmprestimoDAO;
+import locadoraAlbuns.dao.AlbumDAO;
+import locadoraAlbuns.dao.TipoEmprestimoDAO;
+import locadoraAlbuns.entidades.Usuario;
+import locadoraAlbuns.entidades.Emprestimo;
+import locadoraAlbuns.entidades.Album;
+import locadoraAlbuns.entidades.TipoEmprestimo;
 
 /**
- * Servlet para tratar Formacaos.
+ * Servlet para tratar Emprestimos.
  *
  * @author nathipg
  */
-public class FormacaoServlet extends HttpServlet {
+public class EmprestimoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,85 +36,92 @@ public class FormacaoServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String acao = request.getParameter( "acao" );
-        FormacaoDAO dao = null;
-        BandaDAO daoBanda = null;
-        MusicoDAO daoMusico = null;
+        EmprestimoDAO dao = null;
+        UsuarioDAO daoUsuario = null;
+        AlbumDAO daoAlbum = null;
         RequestDispatcher disp = null;
 
         try {
 
-            dao = new FormacaoDAO();
-            daoBanda = new BandaDAO();
-            daoMusico = new MusicoDAO();
+            dao = new EmprestimoDAO();
+            daoUsuario = new UsuarioDAO();
+            daoAlbum = new AlbumDAO();
+            daoTipoEmprestimo = new TipoEmprestimoDAO();
 
             if ( acao.equals( "criar" ) ) {
 
                 String inicio = request.getParameter( "inicio" );
                 String fim = request.getParameter( "fim" );
-                int idBanda = Integer.parseInt( request.getParameter( "idBanda" ) );
-                int idMusico = Integer.parseInt( request.getParameter( "idMusico" ) );
+                int idUsuario = Integer.parseInt( request.getParameter( "idUsuario" ) );
+                int idAlbum = Integer.parseInt( request.getParameter( "idAlbum" ) );
+                int idTipoEmprestimo = Integer.parseInt( request.getParameter( "idTipoEmprestimo" ) );
 
-                Banda banda = daoBanda.obterPorId(idBanda);
-                Musico musico = daoMusico.obterPorId(idMusico);
+                Usuario usuario = daoUsuario.obterPorId(idUsuario);
+                Album album = daoAlbum.obterPorId(idAlbum);
+                TipoEmprestimo tipoEmprestimo = daoTipoEmprestimo.obterPorId(idTipoEmprestimo);
 
-                Formacao formacao = new Formacao();
-                formacao.setInicio( inicio );
-                formacao.setFim( fim );
-                formacao.setBanda( banda );
-                formacao.setMusico( musico );
+                Emprestimo emprestimo = new Emprestimo();
+                emprestimo.setInicio( inicio );
+                emprestimo.setFim( fim );
+                emprestimo.setUsuario( usuario );
+                emprestimo.setAlbum( album );
+                emprestimo.setTipoEmprestimo( tipoEmprestimo );
 
-                dao.salvar( formacao );
+                dao.salvar( emprestimo );
 
-                disp = request.getRequestDispatcher( "/formularios/formacaos/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/emprestimos/listagem.jsp" );
 
             } else if ( acao.equals( "alterar" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
                 String inicio = request.getParameter( "inicio" );
                 String fim = request.getParameter( "fim" );
-                int idBanda = Integer.parseInt( request.getParameter( "idBanda" ) );
-                int idMusico = Integer.parseInt( request.getParameter( "idMusico" ) );
+                int idUsuario = Integer.parseInt( request.getParameter( "idUsuario" ) );
+                int idAlbum = Integer.parseInt( request.getParameter( "idAlbum" ) );
+                int idTipoEmprestimo = Integer.parseInt( request.getParameter( "idTipoEmprestimo" ) );
 
-                Banda banda = daoBanda.obterPorId(idBanda);
-                Musico musico = daoMusico.obterPorId(idMusico);
+                Usuario usuario = daoUsuario.obterPorId(idUsuario);
+                Album album = daoAlbum.obterPorId(idAlbum);
+                TipoEmprestimo tipoEmprestimo = daoTipoEmprestimo.obterPorId(idTipoEmprestimo);
 
-                Formacao formacao = new Formacao();
-                formacao.setId( id );
-                formacao.setInicio( inicio );
-                formacao.setFim( fim );
-                formacao.setBanda( banda );
-                formacao.setMusico( musico );
+                Emprestimo emprestimo = new Emprestimo();
+                emprestimo.setId( id );
+                emprestimo.setInicio( inicio );
+                emprestimo.setFim( fim );
+                emprestimo.setUsuario( usuario );
+                emprestimo.setAlbum( album );
+                emprestimo.setTipoEmprestimo( tipoEmprestimo );
 
-                dao.atualizar( formacao );
+                dao.atualizar( emprestimo );
 
-                disp = request.getRequestDispatcher( "/formularios/formacaos/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/emprestimos/listagem.jsp" );
 
             } else if ( acao.equals( "excluir" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
 
-                Formacao formacao = new Formacao();
-                formacao.setId( id );
+                Emprestimo emprestimo = new Emprestimo();
+                emprestimo.setId( id );
 
-                dao.excluir( formacao );
+                dao.excluir( emprestimo );
 
-                disp = request.getRequestDispatcher( "/formularios/formacaos/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/emprestimos/listagem.jsp" );
 
             } else if ( acao.equals( "prepAlteracao" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
-                Formacao formacao = dao.obterPorId( id );
-                request.setAttribute( "formacao", formacao );
+                Emprestimo emprestimo = dao.obterPorId( id );
+                request.setAttribute( "emprestimo", emprestimo );
 
-                disp = request.getRequestDispatcher( "/formularios/formacaos/alterar.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/emprestimos/alterar.jsp" );
 
             } else if ( acao.equals( "prepExclusao" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
-                Formacao formacao = dao.obterPorId( id );
-                request.setAttribute( "formacao", formacao );
+                Emprestimo emprestimo = dao.obterPorId( id );
+                request.setAttribute( "emprestimo", emprestimo );
 
-                disp = request.getRequestDispatcher( "/formularios/formacaos/excluir.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/emprestimos/excluir.jsp" );
 
             }
 

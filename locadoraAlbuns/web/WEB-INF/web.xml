@@ -32,6 +32,10 @@
         <servlet-name>TipoEmprestimoServlet</servlet-name>
         <servlet-class>locadoraAlbuns.controladores.TipoEmprestimoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EmprestimoServlet</servlet-name>
+        <servlet-class>locadoraAlbuns.controladores.EmprestimoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GeneroServlet</servlet-name>
         <url-pattern>/GeneroServlet</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>TipoEmprestimoServlet</servlet-name>
         <url-pattern>/TipoEmprestimoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmprestimoServlet</servlet-name>
+        <url-pattern>/EmprestimoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
