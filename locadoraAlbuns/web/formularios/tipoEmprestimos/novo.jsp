@@ -5,58 +5,34 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrar Usuário</title>
+        <title>Cadastrar Empréstimo</title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/estilos.css"/>
     </head>
 
     <body>
 
-        <h1>Cadastrar Usuário</h1>
+        <h1>Cadastrar Empréstimo</h1>
 
-        <form method="post" action="${pageContext.request.contextPath}/processaUsuario">
+        <form method="post" action="${pageContext.request.contextPath}/TipoEmprestimoServlet">
 
             <input name="acao" type="hidden" value="criar"/>
 
             <table>
                 <tr>
-                    <td class="alinharDireita">Nome:</td>
+                    <td class="alinharDireita">Dias</td>
                     <td>
-                        <input name="nome" type="text" size="45"/>
+                        <input name="diasDuracao" type="number"/>
                     </td>
                 </tr>
                 <tr>
-                    <td class="alinharDireita">CPF:</td>
+                    <td class="alinharDireita">Valor</td>
                     <td>
-                        <input name="cpf" type="text" size="11"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="alinharDireita">Email:</td>
-                    <td>
-                        <input name="email" type="text" size="45">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="alinharDireita">Telefone Fixo:</td>
-                    <td>
-                        <input name="telefoneFixo" type="text">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="alinharDireita">Telefone Celular:</td>
-                    <td>
-                        <input name="telefoneCelular" type="text">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="alinharDireita">Endereço:</td>
-                    <td>
-                        <textarea name="endereco" type="text" rows="5"></textarea>
+                        <input name="valor" type="text" size="12"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="${pageContext.request.contextPath}/formularios/musicos/listagem.jsp">Voltar</a>
+                        <a href="${pageContext.request.contextPath}/formularios/tipoEmprestimos/listagem.jsp">Voltar</a>
                     </td>
                     <td class="alinharDireita">
                         <input type="submit" value="Salvar"/>

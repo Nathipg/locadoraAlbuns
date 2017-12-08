@@ -32,6 +32,9 @@
         <p>
             <a href="${pageContext.request.contextPath}/formularios/emprestimos/listagem.jsp">Empréstimos</a>
         </p>
+        <p>
+            <a href="${pageContext.request.contextPath}/formularios/tipoEmprestimos/listagem.jsp">Tipos de Empréstimos</a>
+        </p>
 
     </body>
 
