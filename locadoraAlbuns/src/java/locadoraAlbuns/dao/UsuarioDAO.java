@@ -24,13 +24,17 @@ public class UsuarioDAO extends DAO<Usuario> {
                 + "( nome,"
                 + "  cpf,"
                 + "  email,"
+                + "  telefone_fixo,"
+                + "  telefone_celular,"
                 + "  endereco ) "
-                + "VALUES( ?, ?, ?, ? );" );
+                + "VALUES( ?, ?, ?, ?, ?, ? );" );
 
         stmt.setString( 1, obj.getNome() );
         stmt.setString( 2, obj.getCpf() );
         stmt.setString( 3, obj.getEmail() );
-        stmt.setString( 4, obj.getEndereco() );
+        stmt.setString( 4, obj.getTelefoneFixo() );
+        stmt.setString( 5, obj.getTelefoneCelular() );
+        stmt.setString( 6, obj.getEndereco() );
 
         stmt.executeUpdate();        
         stmt.close();
@@ -45,6 +49,8 @@ public class UsuarioDAO extends DAO<Usuario> {
                 + "    nome = ?,"
                 + "    cpf = ?,"
                 + "    email = ?,"
+                + "    telefone_fixo = ?,"
+                + "    telefone_celular = ?,"
                 + "    endereco = ?"
                 + "WHERE"
                 + "    id = ?;" );
@@ -52,8 +58,10 @@ public class UsuarioDAO extends DAO<Usuario> {
         stmt.setString( 1, obj.getNome() );
         stmt.setString( 2, obj.getCpf() );
         stmt.setString( 3, obj.getEmail() );
-        stmt.setString( 4, obj.getEndereco() );
-        stmt.setInt( 5, obj.getId() );
+        stmt.setString( 4, obj.getTelefoneFixo() );
+        stmt.setString( 5, obj.getTelefoneCelular() );
+        stmt.setString( 6, obj.getEndereco() );
+        stmt.setInt( 7, obj.getId() );
 
         stmt.executeUpdate();
         stmt.close();
@@ -81,9 +89,11 @@ public class UsuarioDAO extends DAO<Usuario> {
                 + "    usuario.nome,"
                 + "    usuario.cpf,"
                 + "    usuario.email,"
+                + "    usuario.telefone_fixo,"
+                + "    usuario.telefone_celular,"
                 + "    usuario.endereco"
                 + "FROM usuario;" );
-
+        
         ResultSet rs = stmt.executeQuery();
 
         while ( rs.next() ) {
@@ -94,6 +104,8 @@ public class UsuarioDAO extends DAO<Usuario> {
             usuario.setNome( rs.getString( "nome" ) );
             usuario.setCpf( rs.getString( "cpf" ) );
             usuario.setEmail( rs.getString( "email" ) );
+            usuario.setTelefoneFixo( rs.getString( "telefone_fixo" ) );
+            usuario.setTelefoneCelular( rs.getString( "telefone_celular" ) );
             usuario.setEndereco( rs.getString( "endereco" ) );
 
             lista.add( usuario );
@@ -117,6 +129,8 @@ public class UsuarioDAO extends DAO<Usuario> {
                 + "    usuario.nome,"
                 + "    usuario.cpf,"
                 + "    usuario.email,"
+                + "    usuario.telefone_fixo,"
+                + "    usuario.telefone_celular,"
                 + "    usuario.endereco"
                 + "FROM usuario "
                 + "WHERE usuario.id = ?;" );
@@ -132,6 +146,8 @@ public class UsuarioDAO extends DAO<Usuario> {
             usuario.setNome( rs.getString( "nome" ) );
             usuario.setCpf( rs.getString( "cpf" ) );
             usuario.setEmail( rs.getString( "email" ) );
+            usuario.setTelefoneFixo( rs.getString( "telefone_fixo" ) );
+            usuario.setTelefoneCelular( rs.getString( "telefone_celular" ) );
             usuario.setEndereco( rs.getString( "endereco" ) );
         }
 
@@ -139,29 +155,6 @@ public class UsuarioDAO extends DAO<Usuario> {
         stmt.close();
 
         return usuario;
-    }
-    
-    public int pegarUltimoId() throws SQLException {
-        
-        Usuario usuario = null;
-
-        PreparedStatement stmt = getConnection().prepareStatement(
-                "SELECT"
-                + "MAX(id) as id"
-                + "FROM usuario" );
-
-        ResultSet rs = stmt.executeQuery();
-
-        if ( rs.next() ) {
-            usuario = new Usuario();
-
-            usuario.setId( rs.getInt( "id" ) );
-        }
-
-        rs.close();
-        stmt.close();
-
-        return usuario.getId();
     }
     
 }

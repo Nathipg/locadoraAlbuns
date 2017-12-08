@@ -8,9 +8,7 @@ package locadoraAlbuns.servicos;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import locadoraAlbuns.dao.TelefoneDAO;
 import locadoraAlbuns.dao.UsuarioDAO;
-import locadoraAlbuns.entidades.Telefone;
 import locadoraAlbuns.entidades.Usuario;
 
 /**
@@ -26,30 +24,6 @@ public class UsuarioServices {
 
         try {
             dao = new UsuarioDAO();
-            lista = dao.listarTodos();
-        } catch ( SQLException exc ) {
-            exc.printStackTrace();
-        } finally {
-            if ( dao != null ) {
-                try {
-                    dao.fecharConexao();
-                } catch ( SQLException exc ) {
-                    exc.printStackTrace();
-                }
-            }
-        }
-
-        return lista;
-
-    }
-    
-        public List<Telefone> getTodosTelefones() {
-
-        List<Telefone> lista = new ArrayList<Telefone>();
-        TelefoneDAO dao = null;
-
-        try {
-            dao = new TelefoneDAO();
             lista = dao.listarTodos();
         } catch ( SQLException exc ) {
             exc.printStackTrace();

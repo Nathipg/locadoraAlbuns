@@ -23,7 +23,8 @@
                     <th>Nome</th>
                     <th>CPF</th>
                     <th>Email</th>
-                    <th>Telefone</th>
+                    <th>Telefone Fixo</th>
+                    <th>Telefone Celular</th>
                     <th>Endereço</th>
                 </tr>
             </thead>
@@ -37,6 +38,8 @@
                         <td>${usuario.nome}</td>
                         <td>${usuario.cpf}</td>
                         <td>${usuario.email}</td>
+                        <td>${usuario.telefoneFixo}</td>
+                        <td>${usuario.telefoneCelular}</td>
                         <td>${usuario.endereco}</td>
                         <td><a href="${pageContext.request.contextPath}/processaUsuario?acao=prepAlteracao&id=${usuario.id}">Alterar</a></td>
                         <td><a href="${pageContext.request.contextPath}/processaUsuario?acao=prepExclusao&id=${usuario.id}">Excluir</a></td>
