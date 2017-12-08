@@ -63,21 +63,19 @@ public class FormacaoServlet extends HttpServlet {
 
                 dao.salvar( formacao );
 
-                disp = request.getRequestDispatcher( "/formularios/formacaos/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/formacoes/listagem.jsp" );
 
             } else if ( acao.equals( "alterar" ) ) {
 
-                int id = Integer.parseInt( request.getParameter( "id" ) );
                 String inicio = request.getParameter( "inicio" );
                 String fim = request.getParameter( "fim" );
                 int idBanda = Integer.parseInt( request.getParameter( "idBanda" ) );
                 int idMusico = Integer.parseInt( request.getParameter( "idMusico" ) );
-
+                
                 Banda banda = daoBanda.obterPorId(idBanda);
                 Musico musico = daoMusico.obterPorId(idMusico);
 
                 Formacao formacao = new Formacao();
-                formacao.setId( id );
                 formacao.setInicio( inicio );
                 formacao.setFim( fim );
                 formacao.setBanda( banda );
@@ -85,34 +83,41 @@ public class FormacaoServlet extends HttpServlet {
 
                 dao.atualizar( formacao );
 
-                disp = request.getRequestDispatcher( "/formularios/formacaos/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/formacoes/listagem.jsp" );
 
             } else if ( acao.equals( "excluir" ) ) {
 
-                int id = Integer.parseInt( request.getParameter( "id" ) );
+                int idBanda = Integer.parseInt( request.getParameter( "idBanda" ) );
+                int idMusico = Integer.parseInt( request.getParameter( "idMusico" ) );
+                
+                Banda banda = daoBanda.obterPorId(idBanda);
+                Musico musico = daoMusico.obterPorId(idMusico);
 
                 Formacao formacao = new Formacao();
-                formacao.setId( id );
+                formacao.setBanda( banda );
+                formacao.setMusico( musico );
 
                 dao.excluir( formacao );
 
-                disp = request.getRequestDispatcher( "/formularios/formacaos/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/formacoes/listagem.jsp" );
 
             } else if ( acao.equals( "prepAlteracao" ) ) {
 
-                int id = Integer.parseInt( request.getParameter( "id" ) );
-                Formacao formacao = dao.obterPorId( id );
+                int idBanda = Integer.parseInt( request.getParameter( "idBanda" ) );
+                int idMusico = Integer.parseInt( request.getParameter( "idMusico" ) );
+                Formacao formacao = dao.obterPorId( idBanda, idMusico );
                 request.setAttribute( "formacao", formacao );
 
-                disp = request.getRequestDispatcher( "/formularios/formacaos/alterar.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/formacoes/alterar.jsp" );
 
             } else if ( acao.equals( "prepExclusao" ) ) {
 
-                int id = Integer.parseInt( request.getParameter( "id" ) );
-                Formacao formacao = dao.obterPorId( id );
+                int idBanda = Integer.parseInt( request.getParameter( "idBanda" ) );
+                int idMusico = Integer.parseInt( request.getParameter( "idMusico" ) );
+                Formacao formacao = dao.obterPorId( idBanda, idMusico );
                 request.setAttribute( "formacao", formacao );
 
-                disp = request.getRequestDispatcher( "/formularios/formacaos/excluir.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/formacoes/excluir.jsp" );
 
             }
 

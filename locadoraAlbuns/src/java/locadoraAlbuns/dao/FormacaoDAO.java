@@ -169,4 +169,52 @@ public class FormacaoDAO extends DAO<Formacao> {
         return formacao;
     }
     
+    public Formacao obterPorId(int idBanda, int idMusico) throws SQLException {
+        
+        Formacao formacao = null;
+
+        PreparedStatement stmt = getConnection().prepareStatement(
+                "SELECT "
+                + "    banda.nome  AS banda_nome, "
+                + "    musico.nome AS musico_nome, "
+                + "    formacao.id_banda, "
+                + "    formacao.id_musico, "
+                + "    formacao.inicio, "
+                + "    formacao.fim "
+                + "FROM formacao "
+                + "     INNER JOIN banda "
+                + "             ON banda.id = formacao.id_banda "
+                + "     INNER JOIN musico "
+                + "             ON musico.id = formacao.id_musico "
+                + "WHERE formacao.id_banda = ? AND formacao.id_musico = ?; " );
+
+        stmt.setInt( 1, idBanda );
+        stmt.setInt( 2, idMusico );
+
+        ResultSet rs = stmt.executeQuery();
+
+        if ( rs.next() ) {
+            
+            formacao = new Formacao();
+            Banda banda = new Banda();
+            Musico musico = new Musico();
+            
+            banda.setId( rs.getInt("id_banda") );
+            banda.setNome( rs.getString("banda_nome") );
+            
+            musico.setId( rs.getInt("id_musico") );
+            musico.setNome( rs.getString("musico_nome") );
+            
+            formacao.setBanda( banda );
+            formacao.setMusico( musico );
+            formacao.setInicio( rs.getString("inicio") );
+            formacao.setFim( rs.getString("fim") );
+        }
+
+        rs.close();
+        stmt.close();
+
+        return formacao;
+    }
+    
 }

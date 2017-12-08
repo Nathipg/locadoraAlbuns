@@ -19,9 +19,10 @@
         <table class="tabelaListagem">
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Banda</th>
                     <th>Músico</th>
+                    <th>Início</th>
+                    <th>Fim</th>
                     <th>Alterar</th>
                     <th>Excluir</th>
                 </tr>
@@ -32,11 +33,12 @@
 
                 <c:forEach items="${servicos.todos}" var="formacao">
                     <tr>
-                        <td>${formacao.id}</td>
                         <td>${formacao.banda.nome}</td>
                         <td>${formacao.musico.nome}</td>
-                        <td><a href="${pageContext.request.contextPath}/FormacaoServlet?acao=prepAlteracao&id=${formacao.id}">Alterar</a></td>
-                        <td><a href="${pageContext.request.contextPath}/FormacaoServlet?acao=prepExclusao&id=${formacao.id}">Excluir</a></td>
+                        <td>${formacao.inicio}</td>
+                        <td>${formacao.fim}</td>
+                        <td><a href="${pageContext.request.contextPath}/FormacaoServlet?acao=prepAlteracao&idBanda=${formacao.banda.id}&idMusico=${formacao.musico.id}">Alterar</a></td>
+                        <td><a href="${pageContext.request.contextPath}/FormacaoServlet?acao=prepExclusao&idBanda=${formacao.banda.id}&idMusico=${formacao.musico.id}">Excluir</a></td>
                     </tr>
                 </c:forEach>
             </tbody>

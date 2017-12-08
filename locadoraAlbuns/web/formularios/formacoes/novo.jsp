@@ -35,7 +35,7 @@
                 <tr>
                     <td class="alinharDireita">Banda</td>
                     <td>
-                        <select>
+                        <select name="idBanda">
                             <jsp:useBean id="bandas" scope="page" class="locadoraAlbuns.servicos.BandaServices"/>
                             
                             <c:forEach items="${bandas.todos}" var="banda">
@@ -47,7 +47,13 @@
                 <tr>
                     <td class="alinharDireita">Músico</td>
                     <td>
-                        <input name="fim" type="text" size="10">
+                        <select name="idMusico">
+                            <jsp:useBean id="musicos" scope="page" class="locadoraAlbuns.servicos.MusicoServices"/>
+                            
+                            <c:forEach items="${musicos.todos}" var="musico">
+                                <option value="${musico.id}">${musico.nome}</option>
+                            </c:forEach>
+                        </select>
                     </td>
                 </tr>
                 <tr>
