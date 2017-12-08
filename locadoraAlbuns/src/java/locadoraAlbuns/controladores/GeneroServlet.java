@@ -1,12 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package locadoraAlbuns.controladores;
 
-import cadastroclientes.dao.EstadoDAO;
-import cadastroclientes.entidades.Estado;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
@@ -14,11 +7,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import locadoraAlbuns.dao.GeneroDAO;
+import locadoraAlbuns.entidades.Genero;
 
 /**
- * Servlet para tratar Estados.
+ * Servlet para tratar Generos.
  *
- * @author David Buzatto
+ * @author nathipg
  */
 public class GeneroServlet extends HttpServlet {
    
@@ -35,26 +30,23 @@ public class GeneroServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String acao = request.getParameter( "acao" );
-        EstadoDAO dao = null;
+        GeneroDAO dao = null;
         RequestDispatcher disp = null;
 
         try {
 
-            dao = new EstadoDAO();
+            dao = new GeneroDAO();
 
             if ( acao.equals( "criar" ) ) {
 
                 String nome = request.getParameter( "nome" );
-                String sigla = request.getParameter( "sigla" );
+                
+                Genero genero = new Genero();
+                genero.setNome( nome );
 
-                Estado e = new Estado();
-                e.setNome( nome );
-                e.setSigla( sigla );
+                dao.salvar( genero );
 
-                dao.salvar( e );
-
-                disp = request.getRequestDispatcher(
-                        "/formularios/estados/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/generos/listagem.jsp" );
 
             } else if ( acao.equals( "alterar" ) ) {
 
@@ -62,45 +54,40 @@ public class GeneroServlet extends HttpServlet {
                 String nome = request.getParameter( "nome" );
                 String sigla = request.getParameter( "sigla" );
 
-                Estado e = new Estado();
-                e.setId( id );
-                e.setNome( nome );
-                e.setSigla( sigla );
+                Genero genero = new Genero();
+                genero.setId( id );
+                genero.setNome( nome );
 
-                dao.atualizar( e );
+                dao.atualizar( genero );
 
-                disp = request.getRequestDispatcher(
-                        "/formularios/estados/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/generos/listagem.jsp" );
 
             } else if ( acao.equals( "excluir" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
 
-                Estado e = new Estado();
-                e.setId( id );
+                Genero genero = new Genero();
+                genero.setId( id );
 
-                dao.excluir( e );
+                dao.excluir( genero );
 
-                disp = request.getRequestDispatcher(
-                        "/formularios/estados/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/generos/listagem.jsp" );
 
             } else if ( acao.equals( "prepAlteracao" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
-                Estado e = dao.obterPorId( id );
-                request.setAttribute( "estado", e );
+                Genero genero = dao.obterPorId( id );
+                request.setAttribute( "genero", genero );
 
-                disp = request.getRequestDispatcher(
-                        "/formularios/estados/alterar.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/generos/alterar.jsp" );
 
             } else if ( acao.equals( "prepExclusao" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
-                Estado e = dao.obterPorId( id );
-                request.setAttribute( "estado", e );
+                Genero genero = dao.obterPorId( id );
+                request.setAttribute( "genero", genero );
 
-                disp = request.getRequestDispatcher(
-                        "/formularios/estados/excluir.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/generos/excluir.jsp" );
 
             }
 
@@ -146,6 +133,7 @@ public class GeneroServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         processRequest(request, response);
     }
 

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 01/12/2017, 19:31:55
-    Author     : nathipg
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,6 +13,9 @@
 
         <p>
             <a href="${pageContext.request.contextPath}/formularios/bandas/listagem.jsp">Bandas</a>
+        </p>
+        <p>
+            <a href="${pageContext.request.contextPath}/formularios/generos/listagem.jsp">Gêneros</a>
         </p>
         <!--
         <p>

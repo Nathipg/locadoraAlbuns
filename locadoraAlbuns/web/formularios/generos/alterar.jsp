@@ -11,35 +11,34 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Excluir Estado</title>
+        <title>Alterar Gênero</title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/estilos.css"/>
     </head>
 
     <body>
 
-        <h1>Excluir Estado</h1>
+        <h1>Alterar Gênero</h1>
 
         <form method="post"
-              action="${pageContext.request.contextPath}/processaEstados">
+              action="${pageContext.request.contextPath}/GeneroServlet">
 
-            <input name="acao" type="hidden" value="excluir"/>
-            <input name="id" type="hidden" value="${requestScope.estado.id}"/>
+            <input name="acao" type="hidden" value="alterar"/>
+            <input name="id" type="hidden" value="${requestScope.genero.id}"/>
 
             <table>
                 <tr>
                     <td class="alinharDireita">Nome:</td>
-                    <td>${requestScope.estado.nome}</td>
-                </tr>
-                <tr>
-                    <td class="alinharDireita">Sigla:</td>
-                    <td>${requestScope.estado.sigla}</td>
+                    <td>
+                        <input name="nome" type="text" size="20"
+                               value="${requestScope.genero.nome}"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="${pageContext.request.contextPath}/formularios/estados/listagem.jsp">Voltar</a>
+                        <a href="${pageContext.request.contextPath}/formularios/generos/listagem.jsp">Voltar</a>
                     </td>
                     <td class="alinharDireita">
-                        <input type="submit" value="Excluir"/>
+                        <input type="submit" value="Alterar"/>
                     </td>
                 </tr>
             </table>

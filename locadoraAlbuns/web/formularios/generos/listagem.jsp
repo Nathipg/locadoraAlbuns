@@ -1,7 +1,6 @@
 <%-- 
     Document   : listagem
-    Created on : 18/01/2011, 14:26:29
-    Author     : David
+    Author     : nathipg
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,43 +11,41 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Estados Cadastrados</title>
+        <title>Gêneros Cadastrados</title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/estilos.css"/>
     </head>
 
     <body>
         
-        <h1>Estados Cadastrados</h1>
+        <h1>Gêneros Cadastrados</h1>
 
-        <p><a href="${pageContext.request.contextPath}/formularios/estados/novo.jsp">Novo Estado</a></p>
+        <p><a href="${pageContext.request.contextPath}/formularios/generos/novo.jsp">Novo Gênero</a></p>
 
         <table class="tabelaListagem">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Nome</th>
-                    <th>Sigla</th>
                     <th>Alterar</th>
                     <th>Excluir</th>
                 </tr>
             </thead>
             <tbody>
 
-                <jsp:useBean id="servicos" scope="page" class="cadastroclientes.servicos.EstadoServices"/>
+                <jsp:useBean id="servicos" scope="page" class="locadoraAlbuns.servicos.GeneroServices"/>
 
-                <c:forEach items="${servicos.todos}" var="estado">
+                <c:forEach items="${servicos.todos}" var="genero">
                     <tr>
-                        <td>${estado.id}</td>
-                        <td>${estado.nome}</td>
-                        <td>${estado.sigla}</td>
-                        <td><a href="${pageContext.request.contextPath}/processaEstados?acao=prepAlteracao&id=${estado.id}">Alterar</a></td>
-                        <td><a href="${pageContext.request.contextPath}/processaEstados?acao=prepExclusao&id=${estado.id}">Excluir</a></td>
+                        <td>${genero.id}</td>
+                        <td>${genero.nome}</td>
+                        <td><a href="${pageContext.request.contextPath}/GeneroServlet?acao=prepAlteracao&id=${genero.id}">Alterar</a></td>
+                        <td><a href="${pageContext.request.contextPath}/GeneroServlet?acao=prepExclusao&id=${genero.id}">Excluir</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
 
-        <p><a href="${pageContext.request.contextPath}/formularios/estados/novo.jsp">Novo Estado</a></p>
+        <p><a href="${pageContext.request.contextPath}/formularios/generos/novo.jsp">Novo Gênero</a></p>
         
         <p><a href="${pageContext.request.contextPath}/index.jsp">Tela Principal</a></p>
 
