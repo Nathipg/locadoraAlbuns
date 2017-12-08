@@ -85,11 +85,11 @@ public class EmprestimoDAO extends DAO<Emprestimo> {
                 + "    emprestimo.id_usuario, "
                 + "    emprestimo.id_album, "
                 + "    emprestimo.id_tipo_emprestimo, "
-                + "    usuario.nome, "
+                + "    usuario.nome AS nome_usuario, "
                 + "    usuario.cpf, "
                 + "    usuario.email, "
                 + "    usuario.endereco, "
-                + "    album.nome, "
+                + "    album.nome AS nome_album, "
                 + "    album.foto, "
                 + "    album.data_lancamento, "
                 + "    tipo_emprestimo.dias_duracao, "
@@ -111,13 +111,13 @@ public class EmprestimoDAO extends DAO<Emprestimo> {
             TipoEmprestimo tipoEmprestimo = new TipoEmprestimo();
             
             usuario.setId( rs.getInt( "id_usuario" ) );
-            usuario.setNome( rs.getString( "nome" ) );
+            usuario.setNome( rs.getString( "nome_usuario" ) );
             usuario.setCpf( rs.getString( "cpf" ) );
             usuario.setEmail( rs.getString( "email" ) );
             usuario.setEndereco( rs.getString( "endereco" ) );
             
             album.setId( rs.getInt( "id_album" ) );
-            album.setNome( rs.getString( "nome" ) );
+            album.setNome( rs.getString( "nome_album" ) );
             album.setFoto( rs.getString( "foto" ) );
             album.setDataLancamento( rs.getString( "data_lancamento" ) );
             

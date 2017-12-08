@@ -24,7 +24,8 @@
                     <th>Fim</th>
                     <th>Usuário</th>
                     <th>Álbum</th>
-                    <th>Tipo Empréstimo</th>
+                    <th>Dias de Duração</th>
+                    <th>Valor</th>
                     <th>Alterar</th>
                     <th>Excluir</th>
                 </tr>
@@ -38,7 +39,10 @@
                         <td>${emprestimo.id}</td>
                         <td>${emprestimo.inicio}</td>
                         <td>${emprestimo.fim}</td>
-                        <td>${emprestimo.idUsuario}</td>
+                        <td>${emprestimo.usuario.nome}</td>
+                        <td>${emprestimo.album.nome}</td>
+                        <td>${emprestimo.tipoEmprestimo.diasDuracao}</td>
+                        <td>${emprestimo.tipoEmprestimo.valor}</td>
                         <td><a href="${pageContext.request.contextPath}/EmprestimoServlet?acao=prepAlteracao&id=${emprestimo.id}">Alterar</a></td>
                         <td><a href="${pageContext.request.contextPath}/EmprestimoServlet?acao=prepExclusao&id=${emprestimo.id}">Excluir</a></td>
                     </tr>

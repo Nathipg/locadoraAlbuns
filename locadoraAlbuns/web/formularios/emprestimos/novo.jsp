@@ -63,7 +63,7 @@
                             <jsp:useBean id="tipoEmprestimos" scope="page" class="locadoraAlbuns.servicos.TipoEmprestimoServices"/>
                             
                             <c:forEach items="${tipoEmprestimos.todos}" var="emprestimo">
-                                <option value="${emprestimo.id}">${emprestimo.valor}</option>
+                                <option value="${emprestimo.id}">Dias: ${emprestimo.diasDuracao} - Valor: ${emprestimo.valor}</option>
                             </c:forEach>
                         </select>
                     </td>
