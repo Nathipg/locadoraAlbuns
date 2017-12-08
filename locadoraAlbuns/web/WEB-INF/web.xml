@@ -20,6 +20,10 @@
         <servlet-name>FormacaoServlet</servlet-name>
         <servlet-class>locadoraAlbuns.controladores.FormacaoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FaixaServlet</servlet-name>
+        <servlet-class>locadoraAlbuns.controladores.FaixaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GeneroServlet</servlet-name>
         <url-pattern>/GeneroServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>FormacaoServlet</servlet-name>
         <url-pattern>/FormacaoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FaixaServlet</servlet-name>
+        <url-pattern>/FaixaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
