@@ -8,6 +8,7 @@
         <servlet-name>UsuarioServlet</servlet-name>
         <servlet-class>locadoraAlbuns.controladores.UsuarioServlet</servlet-class>
     </servlet>
+    <servlet>
         <servlet-name>GeneroServlet</servlet-name>
         <servlet-class>locadoraAlbuns.controladores.GeneroServlet</servlet-class>
     </servlet>
@@ -30,6 +31,8 @@
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/processaUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>MusicoServlet</servlet-name>
         <url-pattern>/MusicoServlet</url-pattern>
     </servlet-mapping>
