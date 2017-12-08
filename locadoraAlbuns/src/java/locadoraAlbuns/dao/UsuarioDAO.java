@@ -1,5 +1,6 @@
 package locadoraAlbuns.dao;
 
+import com.mysql.jdbc.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,8 +32,9 @@ public class UsuarioDAO extends DAO<Usuario> {
         stmt.setString( 3, obj.getEmail() );
         stmt.setString( 4, obj.getEndereco() );
 
-        stmt.executeUpdate();
+        stmt.executeUpdate();        
         stmt.close();
+        
     }
 
     @Override
@@ -137,6 +139,29 @@ public class UsuarioDAO extends DAO<Usuario> {
         stmt.close();
 
         return usuario;
+    }
+    
+    public int pegarUltimoId() throws SQLException {
+        
+        Usuario usuario = null;
+
+        PreparedStatement stmt = getConnection().prepareStatement(
+                "SELECT"
+                + "MAX(id) as id"
+                + "FROM usuario" );
+
+        ResultSet rs = stmt.executeQuery();
+
+        if ( rs.next() ) {
+            usuario = new Usuario();
+
+            usuario.setId( rs.getInt( "id" ) );
+        }
+
+        rs.close();
+        stmt.close();
+
+        return usuario.getId();
     }
     
 }

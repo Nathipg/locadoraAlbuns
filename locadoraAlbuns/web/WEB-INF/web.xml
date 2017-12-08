@@ -4,9 +4,17 @@
         <servlet-name>BandaServlet</servlet-name>
         <servlet-class>locadoraAlbuns.controladores.BandaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <servlet-class>locadoraAlbuns.controladores.UsuarioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BandaServlet</servlet-name>
         <url-pattern>/processaBanda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <url-pattern>/processaUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

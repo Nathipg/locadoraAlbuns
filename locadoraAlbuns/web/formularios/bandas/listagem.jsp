@@ -21,7 +21,7 @@
 
         <p><a href="${pageContext.request.contextPath}/formularios/bandas/novo.jsp">Nova Banda</a></p>
 
-        
+        <table>
             <thead>
                 <tr>
                     <th>ID</th>
@@ -30,8 +30,7 @@
                     <th>Descrição</th>
                 </tr>
             </thead>
-            
-
+            <tbody>
                 <jsp:useBean id="servicos" scope="page" class="locadoraAlbuns.servicos.BandaServices"/>
 
                 <c:forEach items="${servicos.todos}" var="banda">
@@ -39,11 +38,13 @@
                         <td>${banda.id}</td>
                         <td>${banda.nome}</td>
                         <td>${banda.dataFormacao}</td>
+                        <td>${banda.descricao}</td>
                         <td><a href="${pageContext.request.contextPath}/processaBanda?acao=prepAlteracao&id=${banda.id}">Alterar</a></td>
                         <td><a href="${pageContext.request.contextPath}/processaBanda?acao=prepExclusao&id=${banda.id}">Excluir</a></td>
                     </tr>
                 </c:forEach>
-            
+            </tbody>
+        </table>
         
 
         <p><a href="${pageContext.request.contextPath}/formularios/bandas/novo.jsp">Nova Cidade</a></p>
