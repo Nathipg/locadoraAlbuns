@@ -14,7 +14,7 @@
         
         <h1>Tipos de Empréstimos</h1>
 
-        <p><a href="${pageContext.request.contextPath}/formularios/tipoEmprestimos/novo.jsp">Novo Usuário</a></p>
+        <p><a href="${pageContext.request.contextPath}/formularios/tipoEmprestimos/novo.jsp">Novo Empréstimo</a></p>
 
         <table class="tabelaListagem">
             <thead>
@@ -22,6 +22,8 @@
                     <th>ID</th>
                     <th>Dias Duração</th>
                     <th>Valor</th>
+                    <th>Alterar</th>
+                    <th>Excluir</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,7 +42,7 @@
             </tbody>
         </table>
 
-        <p><a href="${pageContext.request.contextPath}/formularios/tipoEmprestimos/novo.jsp">Novo Usuário</a></p>
+        <p><a href="${pageContext.request.contextPath}/formularios/tipoEmprestimos/novo.jsp">Novo Empréstimo</a></p>
         
         <p><a href="${pageContext.request.contextPath}/index.jsp">Tela Principal</a></p>
 
