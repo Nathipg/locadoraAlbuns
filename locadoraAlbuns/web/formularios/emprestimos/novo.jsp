@@ -21,15 +21,27 @@
 
             <table>
                 <tr>
-                    <td class="alinharDireita">Data Início </td>
+                    <td class="alinharDireita">Data Início:</td>
                     <td>
                         <input name="inicio" type="text" size="10">
                     </td>
                 </tr>
                 <tr>
-                    <td class="alinharDireita">Data Fim </td>
+                    <td class="alinharDireita">Data Fim:</td>
                     <td>
                         <input name="fim" type="text" size="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alinharDireita">Usuário</td>
+                    <td>
+                        <select>
+                            <jsp:useBean id="usuarios" scope="page" class="locadoraAlbuns.servicos.UsuarioServices"/>
+                            
+                            <c:forEach items="${usuarios.todos}" var="usuario">
+                                <option value="${usuario.id}">${usuario.nome}</option>
+                            </c:forEach>
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -47,12 +59,42 @@
                 <tr>
                     <td class="alinharDireita">Músico</td>
                     <td>
-                        <input name="fim" type="text" size="10">
+                        <select>
+                            <jsp:useBean id="musicos" scope="page" class="locadoraAlbuns.servicos.MusicoServices"/>
+                            
+                            <c:forEach items="${musicos.todos}" var="musico">
+                                <option value="${musico.id}">${musico.nome}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alinharDireita">Álbum</td>
+                    <td>
+                        <select>
+                            <jsp:useBean id="albuns" scope="page" class="locadoraAlbuns.servicos.AlbumServices"/>
+                            
+                            <c:forEach items="${albuns.todos}" var="album">
+                                <option value="${album.id}">${album.nome}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alinharDireita">Tipo Empréstimo</td>
+                    <td>
+                        <select>
+                            <jsp:useBean id="tipoEmprestimos" scope="page" class="locadoraAlbuns.servicos.TipoEmprestimoServices"/>
+                            
+                            <c:forEach items="${tipoEmprestimos.todos}" var="emprestimo">
+                                <option value="${emprestimo.id}">${emprestimo.valor}</option>
+                            </c:forEach>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="${pageContext.request.contextPath}/formularios/formacoes/listagem.jsp">Voltar</a>
+                        <a href="${pageContext.request.contextPath}/formularios/emprestimos/listagem.jsp">Voltar</a>
                     </td>
                     <td class="alinharDireita">
                         <input type="submit" value="Salvar"/>
