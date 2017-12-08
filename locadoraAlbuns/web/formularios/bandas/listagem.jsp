@@ -38,9 +38,9 @@
                     <tr>
                         <td>${banda.id}</td>
                         <td>${banda.nome}</td>
-                        <td>${banda.estado.sigla}</td>
-                        <td><a href="${pageContext.request.contextPath}/processaCidades?acao=prepAlteracao&id=${banda.id}">Alterar</a></td>
-                        <td><a href="${pageContext.request.contextPath}/processaCidades?acao=prepExclusao&id=${banda.id}">Excluir</a></td>
+                        <td>${banda.dataFormacao}</td>
+                        <td><a href="${pageContext.request.contextPath}/processaBanda?acao=prepAlteracao&id=${banda.id}">Alterar</a></td>
+                        <td><a href="${pageContext.request.contextPath}/processaBanda?acao=prepExclusao&id=${banda.id}">Excluir</a></td>
                     </tr>
                 </c:forEach>
             

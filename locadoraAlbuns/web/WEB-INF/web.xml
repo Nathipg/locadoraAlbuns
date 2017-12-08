@@ -6,7 +6,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>BandaServlet</servlet-name>
-        <url-pattern>/BandaServlet</url-pattern>
+        <url-pattern>/processaBanda</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
