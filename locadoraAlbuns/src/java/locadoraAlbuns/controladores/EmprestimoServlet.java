@@ -39,6 +39,7 @@ public class EmprestimoServlet extends HttpServlet {
         EmprestimoDAO dao = null;
         UsuarioDAO daoUsuario = null;
         AlbumDAO daoAlbum = null;
+        TipoEmprestimoDAO daoTipoEmprestimo = null;
         RequestDispatcher disp = null;
 
         try {

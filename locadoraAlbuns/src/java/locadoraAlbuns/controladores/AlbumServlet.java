@@ -51,8 +51,8 @@ public class AlbumServlet extends HttpServlet {
 
             if ( acao.equals( "criar" ) ) {
 
-                String inicio = request.getParameter( "inicio" );
-                String fim = request.getParameter( "fim" );
+                String nome = request.getParameter( "nome" );
+                String dataLancamento = request.getParameter( "dataLancamento" );
                 int idBanda = Integer.parseInt( request.getParameter( "idBanda" ) );
                 int idMusico = Integer.parseInt( request.getParameter( "idMusico" ) );
                 int idGenero = Integer.parseInt( request.getParameter( "idGenero" ) );
@@ -62,8 +62,8 @@ public class AlbumServlet extends HttpServlet {
                 Genero genero = daoGenero.obterPorId(idGenero);
 
                 Album album = new Album();
-                album.setInicio( inicio );
-                album.setFim( fim );
+                album.setNome( nome );
+                album.setDataLancamento( dataLancamento );
                 album.setBanda( banda );
                 album.setMusico( musico );
                 album.setGenero( genero );
@@ -75,11 +75,11 @@ public class AlbumServlet extends HttpServlet {
             } else if ( acao.equals( "alterar" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
-                String inicio = request.getParameter( "inicio" );
-                String fim = request.getParameter( "fim" );
+                String nome = request.getParameter( "nome" );
+                String dataLancamento = request.getParameter( "dataLancamento" );
                 int idBanda = Integer.parseInt( request.getParameter( "idBanda" ) );
                 int idMusico = Integer.parseInt( request.getParameter( "idMusico" ) );
-                nt idGenero = Integer.parseInt( request.getParameter( "idGenero" ) );
+                int idGenero = Integer.parseInt( request.getParameter( "idGenero" ) );
 
                 Banda banda = daoBanda.obterPorId(idBanda);
                 Musico musico = daoMusico.obterPorId(idMusico);
@@ -87,8 +87,8 @@ public class AlbumServlet extends HttpServlet {
 
                 Album album = new Album();
                 album.setId( id );
-                album.setInicio( inicio );
-                album.setFim( fim );
+                album.setNome( nome );
+                album.setDataLancamento( dataLancamento );
                 album.setBanda( banda );
                 album.setMusico( musico );
                 album.setGenero( genero );
