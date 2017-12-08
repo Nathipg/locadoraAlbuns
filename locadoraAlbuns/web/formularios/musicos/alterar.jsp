@@ -13,8 +13,7 @@
 
         <h1>Alterar Músico</h1>
 
-        <form method="post"
-              action="${pageContext.request.contextPath}/MusicoServlet">
+        <form method="post" action="${pageContext.request.contextPath}/MusicoServlet">
 
             <input name="acao" type="hidden" value="alterar"/>
             <input name="id" type="hidden" value="${requestScope.musico.id}"/>
@@ -25,7 +24,21 @@
                     <td>
                         <input name="nome" type="text" size="20"
                                value="${requestScope.musico.nome}"/>
-                    </td>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td class="alinharDireita">Data Nascimento:</td>
+                    <td>
+                        <input name="dataNascimento" type="text" size="20"
+                               value="${requestScope.musico.dataNascimento}"/>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td class="alinharDireita">Bio</td>
+                    <td>
+                        <input name="bio" type="text" size="20"
+                               value="${requestScope.musico.bio}"/>
+                    </td>                    
                 </tr>
                 <tr>
                     <td>

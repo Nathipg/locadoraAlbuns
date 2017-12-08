@@ -56,8 +56,9 @@ public class UsuarioServlet extends HttpServlet {
                 usuario.setNome( nome );
                 usuario.setCpf( cpf );
                 usuario.setEmail( email );
-                usuario.setEndereco( endereco );
-                
+                usuario.setTelefoneFixo( telefoneFixo );
+                usuario.setTelefoneCelular( telefonecelular );
+                usuario.setEndereco( endereco );               
                 
                 dao.salvar( usuario );
                 
@@ -96,8 +97,7 @@ public class UsuarioServlet extends HttpServlet {
 
                 dao.excluir( usuario );
 
-                disp = request.getRequestDispatcher(
-                        "/formularios/usuarios/listagem.jsp" );
+                disp = request.getRequestDispatcher("/formularios/usuarios/listagem.jsp" );
 
             } else if ( acao.equals( "prepAlteracao" ) ) {
 
