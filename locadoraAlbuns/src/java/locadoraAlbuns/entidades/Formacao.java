@@ -5,10 +5,19 @@ package locadoraAlbuns.entidades;
  * @author nathipg
  */
 public class Formacao {
+    private int id;
     private String inicio;
     private String fim;
     private Banda banda;
     private Musico musico;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getInicio() {
         return inicio;

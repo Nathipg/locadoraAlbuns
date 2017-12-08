@@ -21,12 +21,12 @@ public class FormacaoDAO extends DAO<Formacao> {
     @Override
     public void salvar(Formacao obj) throws SQLException {
         PreparedStatement stmt = getConnection().prepareStatement(
-                "INSERT INTO formacao"
-                + "( id_banda,"
-                + "  id_musico,"
-                + "  inicio,"
+                "INSERT INTO formacao "
+                + "( id_banda, "
+                + "  id_musico, "
+                + "  inicio, "
                 + "  fim ) "
-                + "VALUES( ?, ?, ?, ? );" );
+                + "VALUES( ?, ?, ?, ? ); " );
 
         stmt.setInt( 1, obj.getBanda().getId() );
         stmt.setInt( 2, obj.getMusico().getId() );
@@ -41,14 +41,14 @@ public class FormacaoDAO extends DAO<Formacao> {
     public void atualizar(Formacao obj) throws SQLException {
         PreparedStatement stmt = getConnection().prepareStatement(
                 "UPDATE formacao "
-                + "SET"
-                + "    id_banda = ?,"
-                + "    id_musico = ?,"
-                + "    inicio = ?,"
-                + "    fim = ?"
-                + "WHERE"
-                + "    id_banda = ?"
-                + " AND id_musico = ?;" );
+                + "SET "
+                + "    id_banda = ?, "
+                + "    id_musico = ?, "
+                + "    inicio = ?, "
+                + "    fim = ? "
+                + "WHERE "
+                + "    id_banda = ? "
+                + " AND id_musico = ?; " );
 
         stmt.setInt( 1, obj.getBanda().getId() );
         stmt.setInt( 2, obj.getMusico().getId() );
@@ -65,8 +65,8 @@ public class FormacaoDAO extends DAO<Formacao> {
     public void excluir(Formacao obj) throws SQLException {
         PreparedStatement stmt = getConnection().prepareStatement(
                 "DELETE FROM formacao "
-                + "WHERE formacao.id_banda = ?"
-                + "AND formacao.id_musico = ?" );
+                + "WHERE formacao.id_banda = ? "
+                + "AND formacao.id_musico = ? " );
 
         stmt.setInt( 1, obj.getBanda().getId() );
         stmt.setInt( 2, obj.getMusico().getId() );
@@ -81,17 +81,17 @@ public class FormacaoDAO extends DAO<Formacao> {
 
         PreparedStatement stmt = getConnection().prepareStatement(
                 "SELECT "
-                + "    banda.nome  AS banda_nome,"
-                + "    musico.nome AS musico_nome,"
-                + "    formacao.id_banda,"
-                + "    formacao.id_musico,"
-                + "    formacao.inicio,"
-                + "    formacao.fim"
-                + "FROM formacao"
-                + "     INNER JOIN banda"
-                + "             ON banda.id = formacao.id_banda"
-                + "     INNER JOIN musico"
-                + "             ON musico.id = formacao.id_musico;" );
+                + "    banda.nome  AS banda_nome, "
+                + "    musico.nome AS musico_nome, "
+                + "    formacao.id_banda, "
+                + "    formacao.id_musico, "
+                + "    formacao.inicio, "
+                + "    formacao.fim "
+                + "FROM formacao "
+                + "     INNER JOIN banda "
+                + "             ON banda.id = formacao.id_banda "
+                + "     INNER JOIN musico "
+                + "             ON musico.id = formacao.id_musico; " );
 
         ResultSet rs = stmt.executeQuery();
 
@@ -128,18 +128,18 @@ public class FormacaoDAO extends DAO<Formacao> {
 
         PreparedStatement stmt = getConnection().prepareStatement(
                 "SELECT "
-                + "    banda.nome  AS banda_nome,"
-                + "    musico.nome AS musico_nome,"
-                + "    formacao.id_banda,"
-                + "    formacao.id_musico,"
-                + "    formacao.inicio,"
-                + "    formacao.fim"
-                + "FROM formacao"
-                + "     INNER JOIN banda"
-                + "             ON banda.id = formacao.id_banda"
-                + "     INNER JOIN musico"
-                + "             ON musico.id = formacao.id_musico"
-                + "WHERE formacao.id_banda = ?;" );
+                + "    banda.nome  AS banda_nome, "
+                + "    musico.nome AS musico_nome, "
+                + "    formacao.id_banda, "
+                + "    formacao.id_musico, "
+                + "    formacao.inicio, "
+                + "    formacao.fim "
+                + "FROM formacao "
+                + "     INNER JOIN banda "
+                + "             ON banda.id = formacao.id_banda "
+                + "     INNER JOIN musico "
+                + "             ON musico.id = formacao.id_musico "
+                + "WHERE formacao.id_banda = ?; " );
 
         stmt.setInt( 1, id );
 

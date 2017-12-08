@@ -19,12 +19,12 @@ public class MusicoDAO extends DAO<Musico> {
     @Override
     public void salvar(Musico obj) throws SQLException {
         PreparedStatement stmt = getConnection().prepareStatement(
-                "INSERT INTO musico"
-                + "( nome,"
-                + "  foto,"
-                + "  data_nascimento,"
+                "INSERT INTO musico "
+                + "( nome, "
+                + "  foto, "
+                + "  data_nascimento, "
                 + "  bio ) "
-                + "VALUES( ?, ?, ?, ? );" );
+                + "VALUES( ?, ?, ?, ? ); " );
 
         stmt.setString( 1, obj.getNome() );
         stmt.setString( 2, obj.getFoto() );
@@ -39,12 +39,12 @@ public class MusicoDAO extends DAO<Musico> {
     public void atualizar(Musico obj) throws SQLException {
         PreparedStatement stmt = getConnection().prepareStatement(
                 "UPDATE musico "
-                + "SET"
-                + "    nome = ?,"
-                + "    foto = ?,"
-                + "    data_nascimento = ?,"
-                + "    bio = ?"
-                + "WHERE"
+                + "SET "
+                + "    nome = ?, "
+                + "    foto = ?, "
+                + "    data_nascimento = ?, "
+                + "    bio = ? "
+                + "WHERE "
                 + "    id = ?;" );
 
         stmt.setString( 1, obj.getNome() );
@@ -75,12 +75,12 @@ public class MusicoDAO extends DAO<Musico> {
 
         PreparedStatement stmt = getConnection().prepareStatement(
                 "SELECT "
-                + "    musico.id,"
-                + "    musico.nome,"
-                + "    musico.foto,"
-                + "    musico.data_nascimento,"
-                + "    musico.bio"
-                + "FROM musico;" );
+                + "    musico.id, "
+                + "    musico.nome, "
+                + "    musico.foto, "
+                + "    musico.data_nascimento, "
+                + "    musico.bio "
+                + "FROM musico " );
 
         ResultSet rs = stmt.executeQuery();
 
@@ -111,11 +111,11 @@ public class MusicoDAO extends DAO<Musico> {
 
         PreparedStatement stmt = getConnection().prepareStatement(
                 "SELECT "
-                + "    musico.id,"
-                + "    musico.nome,"
-                + "    musico.foto,"
-                + "    musico.data_nascimento,"
-                + "    musico.bio"
+                + "    musico.id, "
+                + "    musico.nome, "
+                + "    musico.foto, "
+                + "    musico.data_nascimento, "
+                + "    musico.bio "
                 + "FROM musico "
                 + "WHERE musico.id = ?;" );
 
