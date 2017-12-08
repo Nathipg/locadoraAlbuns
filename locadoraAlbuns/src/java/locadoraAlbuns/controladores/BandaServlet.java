@@ -36,6 +36,7 @@ public class BandaServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         
+        request.setCharacterEncoding("UTF-8");
         String acao = request.getParameter( "acao" );
         BandaDAO dao = null;
         RequestDispatcher disp = null;
