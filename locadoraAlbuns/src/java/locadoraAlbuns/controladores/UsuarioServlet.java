@@ -90,7 +90,6 @@ public class UsuarioServlet extends HttpServlet {
             } else if ( acao.equals( "excluir" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
-                int idFone = Integer.parseInt( request.getParameter( "idFone" ) );
 
                 Usuario usuario = new Usuario();
                 usuario.setId( id );
