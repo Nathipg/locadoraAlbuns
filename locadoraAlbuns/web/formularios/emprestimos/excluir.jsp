@@ -14,7 +14,7 @@
         <h1>Excluir Empréstimo</h1>
 
         <form method="post"
-              action="${pageContext.request.contextPath}/GeneroServlet">
+              action="${pageContext.request.contextPath}/EmprestimoServlet">
 
             <input name="acao" type="hidden" value="excluir"/>
             <input name="id" type="hidden" value="${requestScope.emprestimo.id}"/>

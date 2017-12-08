@@ -19,12 +19,14 @@
         <table class="tabelaListagem">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>ID</th>
                     <th>Início</th>
                     <th>Fim</th>
                     <th>Usuário</th>
                     <th>Álbum</th>
                     <th>Tipo Empréstimo</th>
+                    <th>Alterar</th>
+                    <th>Excluir</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,7 +38,7 @@
                         <td>${emprestimo.id}</td>
                         <td>${emprestimo.inicio}</td>
                         <td>${emprestimo.fim}</td>
-                        <td>${emprestimo.musico.nome}</td>
+                        <td>${emprestimo.idUsuario}</td>
                         <td><a href="${pageContext.request.contextPath}/EmprestimoServlet?acao=prepAlteracao&id=${emprestimo.id}">Alterar</a></td>
                         <td><a href="${pageContext.request.contextPath}/EmprestimoServlet?acao=prepExclusao&id=${emprestimo.id}">Excluir</a></td>
                     </tr>
