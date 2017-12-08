@@ -25,8 +25,12 @@
         <servlet-class>locadoraAlbuns.controladores.FaixaServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>GeneroServlet</servlet-name>
-        <servlet-class>locadoraAlbuns.controladores.GeneroServlet</servlet-class>
+        <servlet-name>AlbumServlet</servlet-name>
+        <servlet-class>locadoraAlbuns.controladores.AlbumServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TipoEmprestimoServlet</servlet-name>
+        <servlet-class>locadoraAlbuns.controladores.TipoEmprestimoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GeneroServlet</servlet-name>
@@ -53,8 +57,12 @@
         <url-pattern>/FaixaServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>GeneroServlet</servlet-name>
-        <url-pattern>/GeneroServlet</url-pattern>
+        <servlet-name>AlbumServlet</servlet-name>
+        <url-pattern>/AlbumServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TipoEmprestimoServlet</servlet-name>
+        <url-pattern>/TipoEmprestimoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -7,15 +7,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import locadoraAlbuns.dao.GeneroDAO;
-import locadoraAlbuns.entidades.Genero;
+import locadoraAlbuns.dao.TipoEmprestimoDAO;
+import locadoraAlbuns.entidades.TipoEmprestimo;
 
 /**
- * Servlet para tratar Generos.
+ * Servlet para tratar TipoEmprestimos.
  *
  * @author nathipg
  */
-public class GeneroServlet extends HttpServlet {
+public class TipoEmprestimoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,63 +30,67 @@ public class GeneroServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String acao = request.getParameter( "acao" );
-        GeneroDAO dao = null;
+        TipoEmprestimoDAO dao = null;
         RequestDispatcher disp = null;
 
         try {
 
-            dao = new GeneroDAO();
+            dao = new TipoEmprestimoDAO();
 
             if ( acao.equals( "criar" ) ) {
 
-                String nome = request.getParameter( "nome" );
+                int diasDuracao = Integer.parseInt( request.getParameter( "diasDuracao" ) );
+                double valor = Double.parseDouble( request.getParameter( "valor" ) );
 
-                Genero genero = new Genero();
-                genero.setNome( nome );
+                TipoEmprestimo tipoEmprestimo = new TipoEmprestimo();
+                tipoEmprestimo.setDiasDuracao( diasDuracao );
+                tipoEmprestimo.setValor( valor );
 
-                dao.salvar( genero );
+                dao.salvar( tipoEmprestimo );
 
-                disp = request.getRequestDispatcher( "/formularios/generos/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/tipoEmprestimos/listagem.jsp" );
 
             } else if ( acao.equals( "alterar" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
-                String nome = request.getParameter( "nome" );
+                int diasDuracao = Integer.parseInt( request.getParameter( "diasDuracao" ) );
+                double valor = Double.parseDouble( request.getParameter( "valor" ) );
 
-                Genero genero = new Genero();
-                genero.setId( id );
-                genero.setNome( nome );
+                TipoEmprestimo tipoEmprestimo = new TipoEmprestimo();
+                tipoEmprestimo.setId( id );
+                tipoEmprestimo.setDiasDuracao( diasDuracao );
+                tipoEmprestimo.setValor( valor );
 
-                dao.atualizar( genero );
+                dao.atualizar( tipoEmprestimo );
 
-                disp = request.getRequestDispatcher( "/formularios/generos/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/tipoEmprestimos/listagem.jsp" );
 
             } else if ( acao.equals( "excluir" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
 
-                Genero genero = new Genero();
-                genero.setId( id );
+                TipoEmprestimo tipoEmprestimo = new TipoEmprestimo();
+                tipoEmprestimo.setId( id );
 
-                dao.excluir( genero );
+                dao.excluir( tipoEmprestimo );
 
-                disp = request.getRequestDispatcher( "/formularios/generos/listagem.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/tipoEmprestimos/listagem.jsp" );
 
             } else if ( acao.equals( "prepAlteracao" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
-                Genero genero = dao.obterPorId( id );
-                request.setAttribute( "genero", genero );
+                TipoEmprestimo tipoEmprestimo = dao.obterPorId( id );
+                request.setAttribute( "tipoEmprestimo", tipoEmprestimo );
 
-                disp = request.getRequestDispatcher( "/formularios/generos/alterar.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/tipoEmprestimos/alterar.jsp" );
 
             } else if ( acao.equals( "prepExclusao" ) ) {
 
                 int id = Integer.parseInt( request.getParameter( "id" ) );
-                Genero genero = dao.obterPorId( id );
-                request.setAttribute( "genero", genero );
+                TipoEmprestimo tipoEmprestimo = dao.obterPorId( id );
+                request.setAttribute( "tipoEmprestimo", tipoEmprestimo );
 
-                disp = request.getRequestDispatcher( "/formularios/generos/excluir.jsp" );
+                disp = request.getRequestDispatcher( "/formularios/tipoEmprestimos/excluir.jsp" );
 
             }
 
