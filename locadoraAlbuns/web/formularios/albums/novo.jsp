@@ -23,13 +23,13 @@
                 <tr>
                     <td class="alinharDireita">Data Início </td>
                     <td>
-                        <input name="inicio" type="date" size="10">
+                        <input name="inicio" type="text" size="10">
                     </td>
                 </tr>
                 <tr>
                     <td class="alinharDireita">Data Fim </td>
                     <td>
-                        <input name="fim" type="date" size="10">
+                        <input name="fim" type="text" size="10">
                     </td>
                 </tr>
                 <tr>

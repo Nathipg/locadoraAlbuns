@@ -34,7 +34,7 @@
                 <tr>
                     <td class="alinharDireita">Data de Formação:</td>
                     <td>
-                        <input name="dataFormacao" type="date" value="${requestScope.banda.dataFormacao}">
+                        <input name="dataFormacao" type="text" value="${requestScope.banda.dataFormacao}">
                     </td>
                 </tr>
                 <tr>

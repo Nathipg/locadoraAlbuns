@@ -28,7 +28,7 @@
                 <tr>
                     <td class="alinharDireita">Data Nascimento:</td>
                     <td>
-                        <input name="dataNascimento" type="date" size="10"/>
+                        <input name="dataNascimento" type="text" size="10"/>
                     </td>
                 </tr>
                 <tr>
