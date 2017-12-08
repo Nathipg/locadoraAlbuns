@@ -63,6 +63,7 @@ public class AlbumServlet extends HttpServlet {
 
                 Album album = new Album();
                 album.setNome( nome );
+                album.setFoto( "" );
                 album.setDataLancamento( dataLancamento );
                 album.setBanda( banda );
                 album.setMusico( musico );

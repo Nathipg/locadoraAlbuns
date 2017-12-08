@@ -89,9 +89,9 @@ public class AlbumDAO extends DAO<Album> {
                 + "    album.id_genero, "
                 + "    album.id_banda, "
                 + "    album.id_musico, "
-                + "    genero.nome, "
-                + "    banda.nome, "
-                + "    musico.nome "
+                + "    genero.nome AS nome_genero, "
+                + "    banda.nome AS nome_banda, "
+                + "    musico.nome AS nome_musico "
                 + "FROM album"
                         + " INNER JOIN genero "
                         + "         ON genero.id = album.id_genero"
@@ -109,11 +109,11 @@ public class AlbumDAO extends DAO<Album> {
             Musico musico = new Musico();
             
             genero.setId( rs.getInt( "id_genero" ) );
-            genero.setNome( rs.getString( "nome" ) );
+            genero.setNome( rs.getString( "nome_genero" ) );
             
             if( !rs.getString( "id_banda" ).equals("") ) {
                 banda.setId( rs.getInt( "id_banda" ) );
-                banda.setNome( rs.getString( "nome" ) );
+                banda.setNome( rs.getString( "nome_banda" ) );
             } else {
                 banda.setId( 0 );
                 banda.setNome( null );
@@ -121,16 +121,16 @@ public class AlbumDAO extends DAO<Album> {
             
             if( !rs.getString( "id_musico" ).equals("") ) {
                 musico.setId( rs.getInt( "id_musico" ) );
-                musico.setNome( rs.getString( "nome" ) );
+                musico.setNome( rs.getString( "nome_musico" ) );
             } else {
                 musico.setId( 0 );
                 musico.setNome( null );
             }
             
             album.setId( rs.getInt( "id" ) );
-            album.setNome( rs.getString( "id" ) );
-            album.setFoto( rs.getString( "id" ) );
-            album.setDataLancamento( rs.getString( "id" ) );
+            album.setNome( rs.getString( "nome" ) );
+            album.setFoto( rs.getString( "foto" ) );
+            album.setDataLancamento( rs.getString( "data_lancamento" ) );
             album.setGenero( genero );
             album.setBanda( banda );
             album.setMusico( musico );
@@ -200,9 +200,9 @@ public class AlbumDAO extends DAO<Album> {
             }
             
             album.setId( rs.getInt( "id" ) );
-            album.setNome( rs.getString( "id" ) );
-            album.setFoto( rs.getString( "id" ) );
-            album.setDataLancamento( rs.getString( "id" ) );
+            album.setNome( rs.getString( "nome" ) );
+            album.setFoto( rs.getString( "foto" ) );
+            album.setDataLancamento( rs.getString( "data_lancamento" ) );
             album.setGenero( genero );
             album.setBanda( banda );
             album.setMusico( musico );
